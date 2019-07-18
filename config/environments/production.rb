@@ -102,7 +102,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { :host => "https://suitojapan.herokuapp.com" }
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
@@ -113,6 +113,7 @@ Rails.application.configure do
    :user_name            => "suitojapan328@gmail.com",
    :password             => "@Suitojapan328", # Nhớ đổi chỗ này
    :authentication       => "plain",
-  :enable_starttls_auto => true
+   :tls                  => false,
+   :enable_starttls_auto => true
   }
 end
