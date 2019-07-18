@@ -13,8 +13,8 @@ gem 'puma', '~> 3.11'
 # Use Devise for login
 gem 'devise'
 
-# Use Cancancan for authorization
-gem 'cancancan'
+# Use Cancan for authorization
+gem 'cancan'
 
 # Use Activeadmin for admin management
 gem 'activeadmin', '~> 2.2'
