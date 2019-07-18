@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_07_18_075922) do
+=======
+ActiveRecord::Schema.define(version: 2019_07_18_065300) do
+>>>>>>> 74ad52acf8735cb10bea866642f16e266cdeebd6
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +84,36 @@ ActiveRecord::Schema.define(version: 2019_07_18_075922) do
     t.index ["role_id"], name: "index_admin_users_on_role_id"
   end
 
+  create_table "admins", force: :cascade do |t|
+    t.string "fullname", default: ""
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.bigint "role_id"
+    t.string "avatar"
+    t.string "bio"
+    t.boolean "delete_flg", default: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_admins_on_role_id"
+  end
+
   create_table "blog_details", force: :cascade do |t|
     t.bigint "blog_id"
     t.string "title"
@@ -101,7 +135,33 @@ ActiveRecord::Schema.define(version: 2019_07_18_075922) do
     t.datetime "updated_at", null: false
     t.bigint "location_id"
     t.integer "impressions_count", default: 0
+    t.bigint "admin_user_id"
+    t.index ["admin_user_id"], name: "index_blogs_on_admin_user_id"
     t.index ["location_id"], name: "index_blogs_on_location_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "first_choice"
+    t.string "second_choice"
+    t.string "third_choice"
+    t.integer "num_of_people"
+    t.boolean "interpreter", default: false
+    t.bigint "experience_id"
+    t.string "guest_firstnam"
+    t.string "guest_lastname"
+    t.string "guest_title"
+    t.integer "age"
+    t.string "nationality"
+    t.string "language"
+    t.string "phone_number"
+    t.string "email"
+    t.string "address"
+    t.string "representative_firstname"
+    t.string "representative_lastname"
+    t.string "representative_title"
+    t.string "representative_email"
+    t.boolean "send_mail_only_representative", default: false
+    t.index ["experience_id"], name: "index_bookings_on_experience_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -115,6 +175,7 @@ ActiveRecord::Schema.define(version: 2019_07_18_075922) do
     t.index ["category_id"], name: "index_category_blogs_on_category_id"
   end
 
+<<<<<<< HEAD
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
@@ -124,6 +185,25 @@ ActiveRecord::Schema.define(version: 2019_07_18_075922) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type"
+=======
+  create_table "experience_details", force: :cascade do |t|
+    t.string "title"
+    t.decimal "price_adult"
+    t.decimal "price_children"
+    t.decimal "price_infant"
+    t.string "duration"
+    t.string "age"
+    t.string "language"
+    t.bigint "experience_id"
+    t.index ["experience_id"], name: "index_experience_details_on_experience_id"
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.bigint "location_id"
+    t.bigint "admin_user_id"
+    t.index ["admin_user_id"], name: "index_experiences_on_admin_user_id"
+    t.index ["location_id"], name: "index_experiences_on_location_id"
+>>>>>>> 74ad52acf8735cb10bea866642f16e266cdeebd6
   end
 
   create_table "hashtags", force: :cascade do |t|
@@ -170,5 +250,10 @@ ActiveRecord::Schema.define(version: 2019_07_18_075922) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+=======
+  add_foreign_key "bookings", "experiences"
+  add_foreign_key "experiences", "locations"
+>>>>>>> 74ad52acf8735cb10bea866642f16e266cdeebd6
 end
