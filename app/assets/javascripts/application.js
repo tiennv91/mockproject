@@ -20,6 +20,8 @@
 //= require modernizr.custom
 //= require jquery.bxslider.min
 //= require jquery.hoverfold
+//= require ckeditor/init
+//= require_tree ./ckeditor
 //= require exchange_currency_api
 //= require social-share-button
 //= require popper

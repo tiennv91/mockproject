@@ -12,5 +12,22 @@ ActiveAdmin.register BlogDetail do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+  permit_params :title, :content
+
+  index do
+    selectable_column
+    column :id
+    column :content
+    actions
+  end
+
+  filter :title
+
+  form do |f|
+    f.inputs do
+      f.input :title
+      f.cktext_area :content, class: :ckeditor
+    end
+    f.actions
+  end
 end

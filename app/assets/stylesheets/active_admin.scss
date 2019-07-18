@@ -11,6 +11,10 @@
 @import "active_admin/mixins";
 @import "active_admin/base";
 
+#cke_blog_detail_content{
+    width: 80%;
+    margin-left: 20%;
+} 
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //
