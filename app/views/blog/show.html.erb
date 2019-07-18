@@ -1,0 +1,252 @@
+<div class="top_main_view">
+  <div class="">
+    <div class="pankuzu_wrap bg">
+      <div class="common_inner">
+        <ul class="pankuzu_list">
+          <%= render_breadcrumbs :tag => "li class='pankuzu_item'", :separator => "" %>
+        </ul>
+      </div>
+    </div>
+    <div class="blogdetail_wrap clearfix">
+      <section class="blogdetail_main">
+        <div class="blogdetail_mv_pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;"></div>
+        <div class="blogdetail_mv_block">
+          <div class="blogdetail_info">
+            <% @blog.categories.each do |category| %>
+              <p class="tag">
+                <%= category.category_name %>
+              </p>
+            <% end %>
+            <p class="date"><%= @blog.blog_detail.updated_at%></p>
+          </p>
+        </div>
+        <h1 class="blogdetail_title">
+          <%= @blog.blog_detail.title%>
+        </h1>
+        <p class="main_place">
+          <%= image_tag("common/place_icon")%>
+          <a href=""><%= @blog.location.province%></a>
+        </p>
+      </div>
+      <div class="blogdetail_textarea">
+        <%= @blog.blog_detail.content%>
+      </div>
+      <div class="blogdetail_keywords_wrap">
+        <p class="blogdetail_common_title">
+          Blog keywords
+        </p>
+        <ul class="tag_list">
+          <li>
+            <a href="" class="tag">
+              #Ramen
+            </a>
+          </li>
+          <li>
+            <a href="" class="tag">
+              #Photogenic
+            </a>
+          </li>
+          <li>
+            <a href="" class="tag">
+              #High Ratings
+            </a>
+          </li>
+          <li>
+            <a href="" class="tag">
+              #Ramen
+            </a>
+          </li>
+          <li>
+            <a href="" class="tag">
+              #Photogenic
+            </a>
+          </li>
+          <li>
+            <a href="" class="tag">
+              #High Ratings
+            </a>
+          </li>
+          <li>
+            <a href="" class="tag">
+              #Ramen
+            </a>
+          </li>
+          <li>
+            <a href="" class="tag">
+              #Photogenic
+            </a>
+          </li>
+          <li>
+            <a href="" class="tag">
+              #High Ratings
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="blogdetail_recommend_wrap">
+        <p class="blogdetail_common_title">
+          Recommended blogs for you
+        </p>
+        <article class="blog_common_block clearfix detail">
+          <a href="" class="blog_pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;">
+            <span class="tag">Shopping</span>
+          </a>
+          <div class="right">
+            <a href="" class="blog_main_link">
+              <h1 class="blogdetail_title">Souvenirs in Hakata station</h1>
+              <p class="text">
+                There are plenty of regular souvenirs but why not taking time to choose something a bit more special? We selected 10 items that you can easily find in the city center. We excluded items that you can immediately find on the internet; at the Airport or at the station.....
+              </p>
+              <p class="date">2017/08/14</p>
+            </a>
+            <div class="bottom">
+              <p class="place">
+                <%= image_tag("common/place_icon") %>
+                <a href="">Momochihama</a>
+              </p>
+              <ul class="tag_list">
+                <li>
+                  <a href="" class="tag">
+                    #Ramen
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="tag">
+                    #Photogenic
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="people_area">
+            <div class="pic BlogPeople" style="background: url(<%= image_url('common/sample_people')%>) center center no-repeat;background-size: cover;"></div>
+            <span class="talk">No Ramen, No Life!  by youyou</span>
+          </div>
+        </article>
+        <article class="blog_common_block clearfix detail">
+          <a href="" class="blog_pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;">
+            <span class="tag">Shopping</span>
+          </a>
+          <div class="right">
+            <a href="" class="blog_main_link">
+              <h1 class="title">Souvenirs in Hakata station</h1>
+              <p class="text">
+                There are plenty of regular souvenirs but why not taking time to choose something a bit more special? We selected 10 items that you can easily find in the city center. We excluded items that you can immediately find on the internet; at the Airport or at the station.....
+              </p>
+              <p class="date">2017/08/14</p>
+            </a>
+            <div class="bottom">
+              <p class="place">
+                <%= image_tag("common/place_icon") %>
+                <a href="">Momochihama</a>
+              </p>
+              <ul class="tag_list">
+                <li>
+                  <a href="" class="tag">
+                    #Ramen
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="tag">
+                    #Photogenic
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="people_area">
+            <div class="pic BlogPeople" style="background: url(<%= image_url('common/sample_people')%>) center center no-repeat;background-size: cover;"></div>
+            <span class="talk">No Ramen, No Life!  by youyou</span>
+          </div>
+        </article>
+      </div>
+      <div class="blogdetail_ex_wrap clearfix">
+        <p class="blogdetail_common_title sp">
+          Hot experiences in Hakata
+        </p>
+        <div class="blogdetail_ex_inner clearfix">
+          <article class="ex_comon_list">
+            <a href="" class="ex_common_up">
+              <div class="ex_common_pic" style="background: url(<%= image_url('ex/pic01')%>) center center no-repeat;background-size: cover;">
+                <div class="filter"></div>
+                <span class="price_tag">¥2,400</span>
+              </div>
+              <h1 class="title">Japanese Calligraphy</h1>
+              <p class="text">
+                you can learn how to write your favorite Japanese character s(kanji) the traditional way and then print it on a T-shirt......
+              </p>
+            </a>
+            <div class="ex_common_down">
+              <a href="" class="place"><span>Momochihama</span></a>
+              <a href="" class="tag"><span>Entertainment</span></a>
+            </div>
+          </article>
+          <article class="ex_comon_list">
+            <a href="" class="ex_common_up">
+              <div class="ex_common_pic" style="background: url(<%= image_url('ex/pic01')%>) center center no-repeat;background-size: cover;">
+                <div class="filter"></div>
+                <span class="price_tag">¥2,400</span>
+              </div>
+              <h1 class="title">Japanese Calligraphy</h1>
+              <p class="text">
+                you can learn how to write your favorite Japanese character s(kanji) the traditional way and then print it on a T-shirt......
+              </p>
+            </a>
+            <div class="ex_common_down">
+              <a href="" class="place"><span>Momochihama</span></a>
+              <a href="" class="tag"><span>Entertainment</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <aside class="blogdetail_aside">
+      <div class="blodetail_writer_wrap clearfix">
+        <div class="inner">
+          <div class="pic" style="background: url(<%= image_url('common/sample_people')%>) center center no-repeat;background-size: cover;"></div>
+          <div class="right">
+            <p class="writer">
+              Writer<span>youyou</span>
+            </p>
+          </div>
+        </div>
+        <p class="writer_talk">No ramen, No life !!</p>
+      </div>
+      <div class="blodetail_aside_ranking">
+        <p class="blogdetail_aside_title">Blog ranking</p>
+        <article class="blogdetail_ranking_block">
+          <a href="" class="link clearfix">
+            <%= image_tag("blog/rank_icon01", class: "num_pic") %>
+            <div class="pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;">
+            </div>
+            <h1 class="title"><%= @bl_im1.blog_detail.title%></h1>
+          </a>
+        </article>
+        <article class="blogdetail_ranking_block">
+          <a href="" class="link clearfix">
+            <%= image_tag("blog/rank_icon02", class: "num_pic") %>
+            <div class="pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;">
+            </div>
+            <h1 class="title"><%= @bl_im2.blog_detail.title%></h1>
+          </a>
+        </article>
+        <article class="blogdetail_ranking_block">
+          <a href="" class="link clearfix">
+            <%= image_tag("blog/rank_icon03", class: "num_pic") %>
+            <div class="pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;">
+            </div>
+            <h1 class="title"><%= @bl_im3.blog_detail.title%></h1>
+          </a>
+        </article>
+      </div>
+      <div class="blodetail_aside_ranking">
+        <p class="blogdetail_aside_title">Blog category</p>
+        <select name="category_choose" class="blogdetail_aside_select">
+          <option value="Culture">Culture</option>
+          <option value="Shoppint">Shopping</option>
+        </select>
+      </div>
+    </aside>
+  </div>
+</div>
+</div>

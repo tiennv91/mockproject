@@ -1,0 +1,266 @@
+/*=================
+     
+      about.scss
+
+=======================*/
+
+.about_wrap{
+	display: block;
+	width: 980px;
+	margin: 0 auto;
+	padding: 10px 0 0;
+	@media #{$size960}{
+		width: 95%;
+	}
+	.about_mv_block{
+		img{
+			display: block;
+			width: 100%;
+			margin: 0 auto 40px;
+		}
+	}
+	.about_title{
+		font-size: 36px;
+		font-weight: bold;
+		color: $grey;
+		margin: 0 0 40px;
+		text-align: center;
+		@extend .fe;
+		@media #{$size960}{
+			font-size: 20px;
+			margin: 0 0 20px;
+		}
+	}
+	.about_text_block{
+		background: url($get_img+"about/map.png") center center no-repeat;
+		background-size: contain;
+		padding: 20px 0 50px;
+		margin: 0 0 130px;
+		@media #{$size960}{
+			margin: 0 0 10px;
+		}
+		.text{
+			font-size: 18px;
+			color: $grey;
+			line-height: 1.5;
+			@extend .fe;
+			@media #{$size960}{
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+.about_intro_wrap{
+	width: 815px;
+	margin: 0 auto;
+	@media #{$size960}{
+		width: 95%;
+	}
+	.about_common_block{
+		-js-display:flex;
+		display:flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 0 150px;
+		@media #{$size960}{
+			display: block;
+			margin: 0 0 30px;
+		}
+		&.reverse{
+			flex-direction: row-reverse;
+		}
+	}
+	.about_common_pic{
+		@media #{$size960}{
+			display: none;
+		}
+		.view-back{
+		  a{
+		    &:after{
+		      content: "\35";
+		      @extend .icon;
+		      position: absolute;
+		      top: 1px;
+		    }
+		  }
+		}
+	}
+	.about_sp_pic{
+		display: none;
+		@media #{$size960}{
+			display: block;
+			max-width: 380px;
+			width: 100%;
+			margin: 0 auto 20px;
+		}
+	}
+	.about_common_main{
+		width: 360px;
+		.about_common_title{
+			font-size: 30px;
+			color: $grey;
+			font-weight: bold;
+			margin: 0 0 20px;
+			@extend .fe;
+			img{
+				display: inline-block;
+				width: 48px;
+				margin: 0 15px 0 0;
+			}
+		}
+		.about_common_text{
+			font-size: 16px;
+			color: $grey;
+			line-height: 1.5;
+			margin: 0;
+			@extend .fe;
+		}
+	}
+}
+
+.about_blog_wrap{
+	margin: 0 0 100px;
+}
+
+.about_slide_intro{
+	-js-display:flex;
+	display:flex;
+	align-items: center;
+	justify-content: space-between;
+	.date{
+		font-size: 12px; 
+		color: $grey;
+		margin: 0;
+		@extend .fe;
+	}
+	.hash{
+		font-size: 14px;
+		color: $grey;
+		border: 2px $grey solid;
+		border-radius: 15px;
+		display: inline-block !important;
+		padding: 2px 6px;
+		text-decoration: none;
+		width: inherit !important;
+		@extend .fe;
+		&:hover{
+			background: $grey;
+			color: #fff;
+		}
+	}
+}
+
+.about_common_subtitle{
+	font-size: 24px;
+	color: $grey;
+	font-weight: bold;
+	margin: 0 0 40px;
+	text-align: center;
+	@extend .fe;
+	@media #{$size960}{
+		font-size: 20px;
+		margin: 0 0 20px;
+	}
+	&:after{
+		content: "";
+		height: 3px;
+		display: block;
+		width: 50px;
+		background: $grey;
+		margin: 6px auto 0;
+	}
+}
+
+.about_access_wrap{
+	width: 980px;
+	margin: 0 auto 70px;
+	@media #{$size960}{
+		width: 95%;
+		margin: 0 auto 30px;
+	}
+	.access_table{
+		width: 470px;
+		margin: 0 auto 60px;
+		@media #{$size960}{
+			width: 100%;
+			margin: 0 auto 30px;
+		}
+		th{
+			font-size:16px;
+			color: $grey;
+			font-weight: bold;
+			margin: 0;
+			padding: 10px 0;
+			width: 180px;
+			@extend .fe;
+			@media #{$size960}{
+				font-size: 15px;
+				width: 120px;
+			}
+		}
+		td{
+			padding: 10px 0;
+			font-size: 16px;
+			color: $grey;
+			margin: 0;
+			@extend .fe;
+			@media #{$size960}{
+				font-size: 13px;
+			}
+		}
+	}
+	.map{
+		position: relative;
+		padding-bottom: 56.25%;
+		padding-top: 30px;
+		height: 0;
+		overflow: hidden;
+		iframe,
+		object,
+		embed {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+.about_how_wrap{
+	width: 980px;
+	margin: 0 auto;
+	padding: 0 0 30px;
+	@media #{$size960}{
+		width: 95%;
+	}
+	.about_how_link{
+		width: 490px;
+		@media #{$size960}{
+			width: 100%;
+		}
+		-js-display:flex;
+		display:flex;
+		justify-content: space-between;
+		margin: 0 auto 40px;
+		@extend %common_a_transition;
+		.intro{
+			width: 70%;
+			.subtitle{
+				font-size: 16px;
+				font-weight: bold;
+				color: $grey;
+				margin: 0 0 10px;
+				@extend .fe;
+			}
+			.text{
+				font-size: 16px;
+				color: $grey;
+				line-height: 1.5;
+				margin: 0;
+				@extend .fe;
+			}
+		}
+	}
+}
