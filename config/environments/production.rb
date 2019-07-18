@@ -110,6 +110,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
    :address              => "smtp.gmail.com",
    :port                 => 587,
+   :tls                  => false,
    :user_name            => "suitojapan328@gmail.com",
    :password             => "@Suitojapan328", # Nhớ đổi chỗ này
    :authentication       => "plain",
