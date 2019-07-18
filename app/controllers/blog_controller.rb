@@ -15,6 +15,7 @@ class BlogController < ApplicationController
     @bl_im2 = Blog.all.order(impressions_count: :DESC).second
     @bl_im3 = Blog.all.order(impressions_count: :DESC).third
 
+
     @search = Blog.ransack(params[:q])
     @categories = Category.all
     @locations = Location.all
@@ -39,6 +40,9 @@ class BlogController < ApplicationController
   end
 
   def search
+    unless params[:q][:categories_category_name_in].nil?
+      params[:q][:categories_category_name_in] = params[:q][:categories_category_name_in].split(",")
+    end
     index
     render :index
   end
