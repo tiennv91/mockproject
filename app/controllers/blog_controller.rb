@@ -8,9 +8,7 @@ class BlogController < ApplicationController
     add_breadcrumb 'Blog', :blog_index_path
     @blogs = Blog.all.order(created_at: :DESC).page(params[:page]).per(3)
     @blog_first = Blog.all.order(created_at: :DESC).first
-    @blog_count = Blog.count
-    @page = params[:pagenum].to_i
-
+   
     @bl_im1 = Blog.all.order(impressions_count: :DESC).first
     @bl_im2 = Blog.all.order(impressions_count: :DESC).second
     @bl_im3 = Blog.all.order(impressions_count: :DESC).third
@@ -20,6 +18,10 @@ class BlogController < ApplicationController
     @locations = Location.all
     @search.sorts = 'blog_details.title desc' if @search.sorts.empty?
     @blogs = @search.result(distinct: true).order(created_at: :DESC).page(params[:page]).per(3)
+
+    @blog_count = Blog.count
+    @page = params[:page].to_i
+    @last_page = @blogs.total_pages
 
     respond_to do |format|
       format.html
