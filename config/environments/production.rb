@@ -103,7 +103,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   
-  config.action_mailer.default_url_options = { :host => "https://localhost:3000" }
+  config.action_mailer.default_url_options = { :host => "https://suitojp.herokuapp.com/" }
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
   # config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
