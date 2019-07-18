@@ -131,7 +131,6 @@
           </a>
         </article>
       </section>
-<<<<<<< HEAD
       
   <section class="blog_main_wrap">
     <% @blogs.each do |blog| %>
@@ -179,54 +178,6 @@
   </ul>
 </section>
 <!--
-=======
-      <section class="blog_main_wrap">
-        <% @blogs.each do |blog| %>
-          <article class="blog_common_block clearfix">
-            <a href="" class="blog_pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
-              <span class="tag">
-                <% blog.categories.each do |category| %>
-                  <%= category.category_name %>
-                <% end %>
-              </span>
-            </a>
-            <div class="right">
-              <a href="" class="blog_main_link">
-                <h1 class="title"><%= link_to blog.blog_detail.title, blog%></h1>
-                <p class="text">
-                  <%= blog.blog_detail.content%>
-                </p>
-                <p class="date"><%= blog.blog_detail.updated_at%></p>
-              </a>
-              <div class="bottom">
-                <p class="place">
-                  <%= image_tag("common/place_icon.png") %>
-                  <a href=""><%= blog.location.province%></a>
-                </p>
-                <ul class="tag_list">
-                  <% blog.hashtags.each do |hash_tag| %>
-                    <li>
-                      <a href="" class="tag">
-                        #<%= hash_tag.tag_name %>
-                      </a>
-                    </li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-            <div class="people_area">
-              <div class="pic BlogPeople" style="background: url(<%= image_url("common/sample_people.png") %>) center center no-repeat;background-size: cover;"></div>
-              <span class="talk">No Ramen, No Life!  by youyou</span>
-            </div>
-          </article>
-        <%end%>
-      </section>
-      <ul class="ex_list_up_pager bottom">
-        <%= paginate @blogs, theme: 'bottom_page_theme' %>
-      </ul>
-    </section>
-    <!--
->>>>>>> b4b57bf974d9620f4b8d8c5e506e14b725a55442
       <section class="top_movie_wrap">
         <div id="TopMovie"></div>
       </section>
