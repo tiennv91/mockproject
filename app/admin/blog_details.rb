@@ -28,7 +28,7 @@ ActiveAdmin.register BlogDetail do
   form do |f|
     f.inputs do
       f.text_field :title
-      f.input :content, :as => :ckeditor
+      f.input :content,  :as => :ckeditor
     end
     f.actions
   end
