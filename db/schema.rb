@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(version: 2019_07_18_094408) do
     t.index ["category_id"], name: "index_category_experiences_on_category_id"
     t.index ["experience_id"], name: "index_category_experiences_on_experience_id"
   end
-  
+
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
