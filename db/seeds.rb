@@ -66,4 +66,4 @@ Role.create(name: 'admin')
 Role.create(name: 'host')
 Role.create(name: 'user')
 
-# AdminUser.create(email: 'admin@example.com', password: '123456')
+AdminUser.create(email: 'admin@example.com', password: '123456')

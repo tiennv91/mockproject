@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   
   #middleware for pages
   match "/404", to: "errors#not_found", via: :all
