@@ -17,16 +17,18 @@ ActiveAdmin.register BlogDetail do
   index do
     selectable_column
     column :id
+    column :title
     column :content
     actions
   end
 
   filter :title
+  filter :content
 
   form do |f|
     f.inputs do
-      f.input :title
-      f.cktext_area :content, class: :ckeditor
+      f.text_field :title
+      f.input :content, :as => :ckeditor
     end
     f.actions
   end
