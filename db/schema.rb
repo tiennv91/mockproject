@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_18_065300) do
+ActiveRecord::Schema.define(version: 2019_07_18_094408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,6 +150,13 @@ ActiveRecord::Schema.define(version: 2019_07_18_065300) do
     t.index ["category_id"], name: "index_category_blogs_on_category_id"
   end
 
+  create_table "category_experiences", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "experience_id"
+    t.index ["category_id"], name: "index_category_experiences_on_category_id"
+    t.index ["experience_id"], name: "index_category_experiences_on_experience_id"
+  end
+
   create_table "experience_details", force: :cascade do |t|
     t.string "title"
     t.decimal "price_adult"
@@ -214,5 +221,7 @@ ActiveRecord::Schema.define(version: 2019_07_18_065300) do
   end
 
   add_foreign_key "bookings", "experiences"
+  add_foreign_key "category_experiences", "categories"
+  add_foreign_key "category_experiences", "experiences"
   add_foreign_key "experiences", "locations"
 end
