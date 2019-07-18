@@ -42,6 +42,11 @@ gem 'impressionist'
 # Use ransack for searching
 gem 'ransack'
 
+# Use ckeditor for edit blog 
+gem 'ckeditor'
+gem 'paperclip'
+gem 'mini_magick'
+
 # Use social-share-button for sharing facebook, instagram, twitter,...
 gem 'social-share-button'
 

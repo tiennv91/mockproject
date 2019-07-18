@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_18_090456) do
+ActiveRecord::Schema.define(version: 2019_07_18_094408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,10 +121,19 @@ ActiveRecord::Schema.define(version: 2019_07_18_090456) do
   end
 
   create_table "category_experiences", force: :cascade do |t|
+<<<<<<< HEAD
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+=======
+    t.bigint "category_id"
+    t.bigint "experience_id"
+    t.index ["category_id"], name: "index_category_experiences_on_category_id"
+    t.index ["experience_id"], name: "index_category_experiences_on_experience_id"
+  end
+  
+>>>>>>> ebab192621dfd0cfe42713b49ec26164108a1d5e
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
@@ -200,5 +209,7 @@ ActiveRecord::Schema.define(version: 2019_07_18_090456) do
   end
 
   add_foreign_key "bookings", "experiences"
+  add_foreign_key "category_experiences", "categories"
+  add_foreign_key "category_experiences", "experiences"
   add_foreign_key "experiences", "locations"
 end
