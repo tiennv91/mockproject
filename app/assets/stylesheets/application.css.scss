@@ -38,3 +38,23 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
+$size: 2.2rem;
+
+.social-share-button {
+  .ssb-icon {		
+		font-family: 'Lato', sans-serif;
+    background-size: $size $size !important;
+    height: $size !important;
+		width: $size !important;
+  }
+}
+
+.social-share-button .ssb-facebook {
+	padding: 0.8rem;
+  background-image: image-url("common/side_fb.png") !important;
+}
+
+.social-share-button .ssb-twitter {
+  background-image: image-url("common/side_twitter.png") !important;
+}

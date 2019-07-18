@@ -1,17 +1,7 @@
 <div class="top_sns_wrap">
 	  <div class="top_sns_inner">
-		  <div class="share-button">
-		    <div class="share-button-secondary">
-		      <div class="share-button-secondary-content">
-		        share on facebook
-		      </div>
-		    </div>
-		    <div class="share-button-primary">
-		      <%= image_tag("common/side_fb.png") %>					
-					<%# <%= social_share_button_tag(@blog.id) %>
-		    </div>
-		  </div>
-		  <div class="share-button clearfix">
+			<%= social_share_button_tag("Home - SUITO", :url => "http://localhost:3000/") %>
+			<div class="share-button clearfix">
 		    <div class="share-button-secondary">
 		      <div class="share-button-secondary-content">
 		        share on instagram
@@ -21,17 +11,7 @@
 		      <%= image_tag("common/side_insta.png") %>
 		    </div>
 		  </div>
-		  <div class="share-button">
-		    <div class="share-button-secondary">
-		      <div class="share-button-secondary-content">
-		        share on twitter
-		      </div>
-		    </div>
-		    <div class="share-button-primary">
-		      <%= image_tag("common/side_twitter.png") %>
-		    </div>		
-		  </div>
-		  <div class="change_btn_block">
+			<div class="change_btn_block">
 			  <p class="change_btn" id="SideChangeBtn">
 				  <%= image_tag("common/side_change.png") %>
 			  </p>
@@ -104,6 +84,6 @@
 	          </ul>
 	        </div>
 		  	</div>
-		  </div>
+		  </div> 
 	  </div>
   </div>
