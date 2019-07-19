@@ -20,7 +20,7 @@
 //= require modernizr.custom
 //= require jquery.bxslider.min
 //= require jquery.hoverfold
-//= require jquery.formatCurrency-1.4.0
+//= require currency.min
 //= require exchange_currency_api
 //= require social-share-button
 //= require popper
