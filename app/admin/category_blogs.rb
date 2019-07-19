@@ -27,7 +27,7 @@ ActiveAdmin.register CategoryBlog do
     actions
   end
 
-  filter :category_name
+  filter :category_id
   filter :blog_id
 
   form do |f|
