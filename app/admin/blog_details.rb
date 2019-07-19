@@ -18,7 +18,7 @@ ActiveAdmin.register BlogDetail do
     selectable_column
     column :id
     column :title
-    column :content
+    column :content    
     actions
   end
 

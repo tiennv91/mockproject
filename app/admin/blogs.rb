@@ -12,5 +12,13 @@ ActiveAdmin.register Blog do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+  index do
+    selectable_column
+    column :id
+    column :created_at
+    column :updated_at
+    column :location_id
+    column :impressions_count    
+    actions
+  end
 end
