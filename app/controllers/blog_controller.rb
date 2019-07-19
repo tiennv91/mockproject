@@ -9,10 +9,7 @@ class BlogController < ApplicationController
     @blogs = Blog.all.order(created_at: :DESC).page(params[:page]).per(3)
     @blog_first = Blog.all.order(created_at: :DESC).first
    
-    @bl_im1 = Blog.all.order(impressions_count: :DESC).first
-    @bl_im2 = Blog.all.order(impressions_count: :DESC).second
-    @bl_im3 = Blog.all.order(impressions_count: :DESC).third
-
+    @popular_blogs = Blog.popular
 
     @search = Blog.ransack(params[:q])
     @categories = Category.all
@@ -23,7 +20,6 @@ class BlogController < ApplicationController
 
     @blog_count = Blog.count
     @page = params[:page].to_i
-    @last_page = @blogs.total_pages
 
     respond_to do |format|
       format.html
@@ -33,9 +29,7 @@ class BlogController < ApplicationController
 
   def show
     @blog = Blog.find(params[:id])
-    @bl_im1 = Blog.all.order(impressions_count: :DESC).first
-    @bl_im2 = Blog.all.order(impressions_count: :DESC).second
-    @bl_im3 = Blog.all.order(impressions_count: :DESC).third
+    @popular_blogs = Blog.popular
     @hashtags = Hashtag.all
 
     # breacrumb

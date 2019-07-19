@@ -61,6 +61,7 @@
                     </div>
                   </div>
                 </div>
+                <input type="text" name="q[hashtags_tag_name_in]" class="blog_search_key">
                 <div class="header_exp_block">
                   <input type="text" name="q[location_province_in]" class="header_search_place" id="ExSearchPlace">
                   <div class="header_exp_popup" id="ExPlacePop">
@@ -86,15 +87,17 @@
       <div class="ex_list_top_area">
         <p class="ex_list_num">
         <span>
-          <%if @page==0%>
+          <%if @page == 0%>
             <%if @blog_count < 3%>
               1 - <%= @blog_count%>
             <%else%>
               1- <%=3%>
             <%end%>
           <%elsif @page > 0 %>
-            <%if @page==@last_page%>
+            <%if @page == @@blogs.total_pages%>
               <%= @page*3-2%> - <%= @blog_count%>
+            <%elsif @page > @@blogs.total_pages%>
+              Page not found
             <%else%>
               <%= @page*3-2%> - <%= 3*@page%>
             <%end%>
@@ -103,57 +106,26 @@
         <%= paginate @blogs%>
       </div>
       <section class="blog_ranking_wrap clearfix">
+      <% @popular_blogs.each do |blog|%>
         <article class="blog_ranking_block">
-          <a href="<%= blog_path(@bl_im1) %>" class="link clearfix">
+          <a href="<%= blog_path(blog) %>" class="link clearfix">
             <%= image_tag("blog/rank_icon01.png", class: "num_pic") %>
             <div class="right">
               <div class="pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
-                <% if @bl_im1.categories.any? %>
+                <% if blog.categories.any? %>
                   <span class="blog_main_left_tag">
-                    <%unless @bl_im1.categories.first.nil? %>
-                      <%= @bl_im1.categories.first.category_name %>
+                    <%unless blog.categories.first.nil? %>
+                      <%= blog.categories.first.category_name %>
                     <% end %>
                   </span>
                 <% end %>
               </div>
-              <h1 class="title"><%= @bl_im1.blog_detail.title%></h1>
+              <h1 class="title"><%= blog.blog_detail.title%></h1>
             </div>
           </a>
         </article>
-        <article class="blog_ranking_block">
-          <a href="<%= blog_path(@bl_im2) %>" class="link clearfix">
-            <%= image_tag("blog/rank_icon02.png", class: "num_pic") %>
-            <div class="right">
-              <div class="pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
-                 <% if @bl_im2.categories.any? %>
-                  <span class="blog_main_left_tag">
-                    <%unless @bl_im2.categories.first.nil? %>
-                      <%= @bl_im2.categories.first.category_name %>
-                    <% end %>
-                  </span>
-                <% end %>
-              </div>
-              <h1 class="title"><%= @bl_im2.blog_detail.title%></h1>
-            </div>
-          </a>
-        </article>
-        <article class="blog_ranking_block">
-          <a href="<%= blog_path(@bl_im3) %>" class="link clearfix">
-            <%= image_tag("blog/rank_icon03.png", class: "num_pic") %>
-            <div class="right">
-              <div class="pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
-                <% if @bl_im3.categories.any? %>
-                  <span class="blog_main_left_tag">
-                    <%unless @bl_im3.categories.first.nil? %>
-                      <%= @bl_im3.categories.first.category_name %>
-                    <% end %>
-                  </span>
-                <% end %>
-              </div>
-              <h1 class="title"><%= @bl_im3.blog_detail.title%></h1>
-            </div>
-          </a>
-        </article>
+      <%end%>
+
       </section>
       
   <section class="blog_main_wrap">

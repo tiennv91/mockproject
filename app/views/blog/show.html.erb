@@ -181,30 +181,16 @@
       </div>
       <div class="blodetail_aside_ranking">
         <p class="blogdetail_aside_title">Blog ranking</p>
-        <article class="blogdetail_ranking_block">
-          <a href="" class="link clearfix">
-            <%= image_tag("blog/rank_icon01", class: "num_pic") %>
-            <div class="pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;">
-            </div>
-            <h1 class="title"><%= @bl_im1.blog_detail.title%></h1>
-          </a>
-        </article>
-        <article class="blogdetail_ranking_block">
-          <a href="" class="link clearfix">
-            <%= image_tag("blog/rank_icon02", class: "num_pic") %>
-            <div class="pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;">
-            </div>
-            <h1 class="title"><%= @bl_im2.blog_detail.title%></h1>
-          </a>
-        </article>
-        <article class="blogdetail_ranking_block">
-          <a href="" class="link clearfix">
-            <%= image_tag("blog/rank_icon03", class: "num_pic") %>
-            <div class="pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;">
-            </div>
-            <h1 class="title"><%= @bl_im3.blog_detail.title%></h1>
-          </a>
-        </article>
+        <%@popular_blogs.each do |blog|%>
+          <article class="blogdetail_ranking_block">
+            <a href="" class="link clearfix">
+              <%= image_tag("blog/rank_icon03", class: "num_pic") %>
+              <div class="pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;">
+              </div>
+              <h1 class="title"><%= blog.blog_detail.title%></h1>
+            </a>
+          </article>
+        <%end%>
       </div>
       <div class="blodetail_aside_ranking">
         <p class="blogdetail_aside_title">Blog category</p>

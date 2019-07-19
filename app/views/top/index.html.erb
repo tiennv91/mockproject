@@ -511,46 +511,21 @@
         <%= image_tag('top/top_title06')%>
       </h1>
       <div class="top_blog_main">
-        <article class="top_blog_up">
-          <a href="">
-            <div class="top_blog_pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;"></div>
-            <div class="top_blog_info">
-              <h1 class="top_blog_title">
-                <span><%= @bl_im1.blog_detail.title%></span>
-              </h1>
-              <div class="top_blog_inner">
-                <div class="left">
-                  <p class="date"><%= @bl_im1.updated_at%></p>
-                  <ul class="top_blog_tag">
-                    <% @bl_im1.hashtags.each do |hash_tag| %>
-                      <li class="top_blog_tag_item">
-                        <p class="top_blog_tag_link" id="">#<%= hash_tag.tag_name %></p>
-                      </li>
-                    <% end %>
-                  </ul>
-                </div>
-                <div class="top_blog_people_pic" style="background: url(<%= image_url('common/sample_people')%>) center center no-repeat;background-size: cover;"></div>
-              </div>
-              <p class="top_blog_text">
-                <%= @bl_im1.blog_detail.content%>
-              </p>
-            </div>
-          </a>
-        </article>
         <div class="top_blog_bottom">
           <div class="top_blog_left">
+            <% @popular_blogs.each do |blog|%>
             <article class="top_common_blog">
               <a href="">
                 <div class="top_blog_pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;"></div>
                 <div class="top_blog_info">
                   <h1 class="top_blog_title">
-                    <span><%= @bl_im2.blog_detail.title%></span>
+                    <span><%= blog.blog_detail.title%></span>
                   </h1>
                   <div class="top_blog_inner">
                     <div class="left">
-                      <p class="date"><%= @bl_im2.updated_at%></p>
+                      <p class="date"><%= blog.updated_at%></p>
                       <ul class="top_blog_tag">
-                        <% @bl_im2.hashtags.each do |hash_tag| %>
+                        <% blog.hashtags.each do |hash_tag| %>
                           <li class="top_blog_tag_item">
                             <p class="top_blog_tag_link" id="">#<%= hash_tag.tag_name %></p>
                           </li>
@@ -560,37 +535,12 @@
                     <div class="top_blog_people_pic" style="background: url(<%= image_url('common/sample_people')%>) center center no-repeat;background-size: cover;"></div>
                   </div>
                   <p class="top_blog_text">
-                    <%= @bl_im2.blog_detail.content%>
+                    <%= blog.blog_detail.content%>
                   </p>
                 </div>
               </a>
             </article>
-            <article class="top_common_blog">
-              <a href="">
-                <div class="top_blog_pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;"></div>
-                <div class="top_blog_info">
-                  <h1 class="top_blog_title">
-                    <span><%= @bl_im3.blog_detail.title%></span>
-                  </h1>
-                  <div class="top_blog_inner">
-                    <div class="left">
-                      <p class="date"><%= @bl_im2.updated_at%></p>
-                      <ul class="top_blog_tag">
-                        <% @bl_im3.hashtags.each do |hash_tag| %>
-                          <li class="top_blog_tag_item">
-                            <p class="top_blog_tag_link" id="">#<%= hash_tag.tag_name %></p>
-                          </li>
-                        <% end %>
-                      </ul>
-                    </div>
-                    <div class="top_blog_people_pic" style="background: url(<%= image_url('common/sample_people')%>) center center no-repeat;background-size: cover;"></div>
-                  </div>
-                  <p class="top_blog_text">
-                    <%= @bl_im3.blog_detail.content%>
-                  </p>
-                </div>
-              </a>
-            </article>
+            <%end%>
             <p class="common_sp_more">more</p>
           </div>
           <div class="top_blog_right">
