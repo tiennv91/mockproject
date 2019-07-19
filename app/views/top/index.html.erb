@@ -520,7 +520,7 @@
               </h1>
               <div class="top_blog_inner">
                 <div class="left">
-                  <p class="date"><%= @bl_im1.updated_at%></p>
+                  <p class="date"><%= @bl_im1.updated_at.strftime('%Y/%m/%d')%></p>
                   <ul class="top_blog_tag">
                     <% @bl_im1.hashtags.each do |hash_tag| %>
                       <li class="top_blog_tag_item">
@@ -548,7 +548,7 @@
                   </h1>
                   <div class="top_blog_inner">
                     <div class="left">
-                      <p class="date"><%= @bl_im2.updated_at%></p>
+                      <p class="date"><%= @bl_im2.updated_at.strftime('%Y/%m/%d')%></p>
                       <ul class="top_blog_tag">
                         <% @bl_im2.hashtags.each do |hash_tag| %>
                           <li class="top_blog_tag_item">
@@ -574,7 +574,7 @@
                   </h1>
                   <div class="top_blog_inner">
                     <div class="left">
-                      <p class="date"><%= @bl_im2.updated_at%></p>
+                      <p class="date"><%= @bl_im2.updated_at.strftime('%Y/%m/%d') %></p>
                       <ul class="top_blog_tag">
                         <% @bl_im3.hashtags.each do |hash_tag| %>
                           <li class="top_blog_tag_item">
