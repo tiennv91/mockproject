@@ -13,4 +13,15 @@ ActiveAdmin.register BlogHashtag do
   #   permitted
   # end
   
+  index do
+    selectable_column
+    column :id
+    column :blog
+    column :hashtag 
+    actions
+  end
+
+  filter :blog
+  filter :hashtag
+
 end

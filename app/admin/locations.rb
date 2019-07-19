@@ -22,7 +22,6 @@ ActiveAdmin.register Location do
   end
 
   filter :province
-  filter :created_at
 
   form do |f|
     f.inputs do

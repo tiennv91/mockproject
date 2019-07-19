@@ -21,4 +21,10 @@ ActiveAdmin.register Blog do
     column :impressions_count    
     actions
   end
+
+  filter :id
+  filter :impressions_count
+  filter :created_at
+  filter :updated_at
+  filter :location_id
 end
