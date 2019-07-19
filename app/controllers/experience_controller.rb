@@ -5,9 +5,7 @@ class ExperienceController < ApplicationController
     @experience_count = Experience.count
     @page = params[:pagenum].to_i
 
-    @exp_im1 = Experience.all.order(impressions_count: :DESC).first
-    @exp_im2 = Experience.all.order(impressions_count: :DESC).second
-    @exp_im3 = Experience.all.order(impressions_count: :DESC).third
+    @rank_experiences = ExperienceService.new.rank
 
 
     @search = Experience.ransack(params[:q])
