@@ -50,7 +50,7 @@
             <div class="header_search_block ex_main_search">
               <%= search_form_for @search,url: search_blog_index_path , class: "ex_main_form",html: { method: :post } do |f| %>
                 <div class="header_exp_block">
-                  <input type="text" name="q[categories_category_name_in]" class="blog_search_cat" id="BlogCat">
+                  <input type="text" name="q[categories_category_name_in]" autocomplete="off" class="blog_search_cat" id="BlogCat">
                   <div class="header_exp_popup" id="BlogCatPop">
                     <div class="" id="BlogCat_Choose">
                       <ul class="top_mv_place_list">
@@ -62,9 +62,9 @@
                   </div>
                 </div>
                 <%=@test%>
-                <input type="text" name="q[hashtags_tag_name_in]" class="blog_search_key">
+                <input type="text" name="q[hashtags_tag_name_in]" autocomplete="off" class="blog_search_key">
                 <div class="header_exp_block">
-                  <input type="text" name="q[location_province_in]" class="header_search_place" id="ExSearchPlace">
+                  <input type="text" name="q[location_province_in]" autocomplete="off" class="header_search_place" id="ExSearchPlace">
                   <div class="header_exp_popup" id="ExPlacePop">
                     <div class="" id="EXSearchPlace_Choose">
                       <ul class="top_mv_place_list">
