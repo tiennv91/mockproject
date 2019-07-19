@@ -86,22 +86,6 @@
     <section class="ex_list_block">
       <div class="ex_list_top_area">
         <p class="ex_list_num">
-        <span>
-          <%if @page == 0%>
-            <%if @blog_count < 3%>
-              1 - <%= @blog_count%>
-            <%else%>
-              1- <%=3%>
-            <%end%>
-          <%elsif @page > 0 %>
-            <%if @page == @blogs.total_pages%>
-              <%= @page*3-2%> - <%= @blog_count%>
-            <%elsif @page > @blogs.total_pages%>
-              Nothing to find
-            <%else%>
-              <%= @page*3-2%> - <%= 3*@page%>
-            <%end%>
-          <%end%>
         <%= paginate @blogs%>
       </div>
       <section class="blog_ranking_wrap clearfix">
