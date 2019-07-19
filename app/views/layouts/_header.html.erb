@@ -22,14 +22,7 @@
 				</a>
 				<a href="/" class="header_menu_link">
 					FAQ
-				</a>
-				<% if admin_user_signed_in? %>
-				<b>Hello, <%= current_admin_user.fullname %></b>
-				<%= link_to "Sign out", destroy_admin_user_session_path, :method => :delete, class: "header_menu_link" %>
-				<% else %>
-				<%= link_to "Sign up", new_admin_user_registration_path, class: "header_menu_link" %>
-				<%= link_to "Sign in", new_admin_user_session_path, class: "header_menu_link" %>
-				<% end %>
+				</a>				
 			</nav>
 			<select name="language_choose" class="header_select">
 				<option value="English">English</option>
