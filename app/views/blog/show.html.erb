@@ -36,46 +36,13 @@
           Blog keywords
         </p>
         <ul class="tag_list">
-          <li>
-            <a href="" class="tag">
-              #Ramen
-            </a>
-          </li>
-          <li>
-            <a href="" class="tag">
-              #Photogenic
-            </a>
-          </li>
-          <li>
-            <a href="" class="tag">
-              #High Ratings
-            </a>
-          </li>
-          <li>
-            <a href="" class="tag">
-              #Ramen
-            </a>
-          </li>
-          <li>
-            <a href="" class="tag">
-              #Photogenic
-            </a>
-          </li>
-          <li>
-            <a href="" class="tag">
-              #High Ratings
-            </a>
-          </li>
-          <li>
-            <a href="" class="tag">
-              #Ramen
-            </a>
-          </li>
-          <li>
-            <a href="" class="tag">
-              #Photogenic
-            </a>
-          </li>
+          <% @hashtags.each do |hash_tag| %>
+            <li>
+              <a href="" class="tag">
+                  #<%= hash_tag.tag_name %>
+              </a>
+            </li>
+          <% end %>
           <li>
             <a href="" class="tag">
               #High Ratings
