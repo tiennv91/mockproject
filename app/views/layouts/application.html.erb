@@ -78,6 +78,30 @@
       */
       
       
+      //Experience date holder
+      $('#ExSearchDate').on("click",function(){
+        $("#MvExpFilter").fadeIn();
+      });
+      
+      
+      $('#ExSearchDate').on('apply.daterangepicker', function(ev, picker) {
+      $(this).val(picker.startDate.format('YYYY/MM/DD') + ' - ' + picker.endDate.format('YYYY/MM/DD'));
+      $("#MvExpFilter").fadeOut();
+        });
+      
+        $('#ExSearchDate').on('cancel.daterangepicker', function(ev, picker) {
+      $(this).val('');
+      $("#MvExpFilter").fadeOut();
+        });
+      
+        $('#ExSearchDate').daterangepicker({
+      			autoUpdateInput: false,
+      			locale: {
+          cancelLabel: 'Clear'
+      }
+      		});
+      
+      
         $('input[name="top_date"]').daterangepicker({
       		autoUpdateInput: false,
       		locale: {
