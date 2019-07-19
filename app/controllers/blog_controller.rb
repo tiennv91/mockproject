@@ -44,14 +44,15 @@ class BlogController < ApplicationController
   def search
     unless params[:q][:categories_category_name_in].nil?
       params[:q][:categories_category_name_in] = params[:q][:categories_category_name_in].split(",")
+      unless params[:q][:location_province_in].nil?
+        params[:q][:location_province_in] = params[:q][:location_province_in].split(",")
+        unless params[:q][:hashtags_tag_name_in].nil?
+          params[:q][:hashtags_tag_name_in] = params[:q][:hashtags_tag_name_in].split(" ")
+        end
+      end
     end
-    unless params[:q][:location_province_in].nil?
-      params[:q][:location_province_in] = params[:q][:location_province_in].split(",")
-    end
-    unless params[:q][:hashtags_tag_name_in].nil?
-      params[:q][:hashtags_tag_name_in] = params[:q][:hashtags_tag_name_in].split(",")
-      # @test = Blog.search(params[:q][:hashtags_tag_name_in]).to_sql
-    end
+    
+    
     index
     render :index
   end
