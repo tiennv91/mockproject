@@ -29,7 +29,7 @@
         </p>
       </div>
       <div class="blogdetail_textarea">
-        <%= @blog.blog_detail.content.html_safe%>
+        <%= @blog.blog_detail.content.try(:html_safe)%>
       </div>
       <div class="blogdetail_keywords_wrap">
         <p class="blogdetail_common_title">

@@ -94,15 +94,14 @@
               1- <%=3%>
             <%end%>
           <%elsif @page > 0 %>
-            <%if @page == @@blogs.total_pages%>
+            <%if @page == @blogs.total_pages%>
               <%= @page*3-2%> - <%= @blog_count%>
-            <%elsif @page > @@blogs.total_pages%>
-              Page not found
+            <%elsif @page > @blogs.total_pages%>
+              Nothing to find
             <%else%>
               <%= @page*3-2%> - <%= 3*@page%>
             <%end%>
           <%end%>
-        </span><span> / </span><span><%= @blog_count%></span> blogs</p>
         <%= paginate @blogs%>
       </div>
       <section class="blog_ranking_wrap clearfix">
@@ -151,8 +150,8 @@
               <%= blog.blog_detail.title %> 
             </h1>
 
-            <p class="text">
-              <%= blog.blog_detail.content %>
+            <p class="text" id="block-with-text">
+              <%= blog.blog_detail.description %>
             </p>
             <p class="date"> <%= blog.blog_detail.updated_at.strftime("%Y/%m/%d") %> </p>
 
