@@ -35,6 +35,7 @@ function CurencyAPI(BASE='JPY'){
                     } else {
                     let out = amount_origin * json.rates[moneyexchange];
                         output_moneyexchange.val(out);
+                        output_moneyexchange.formatCurrency();
                     }
                 }
                 else{
@@ -49,6 +50,7 @@ function CurencyAPI(BASE='JPY'){
 
                         let out = amount_origin * (1 / json.rates[moneyorigin]);
                         output_moneyexchange.val(out);
+                        output_moneyexchange.formatCurrency();
                     }
                 }
               

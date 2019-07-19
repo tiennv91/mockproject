@@ -61,6 +61,10 @@
                     </div>
                   </div>
                 </div>
+<<<<<<< HEAD
+=======
+                <input type="text" name="q[hashtags_tag_name_in]" class="blog_search_key">
+>>>>>>> ecee27ed6c4f070fb561dfa4899e4bc3802ef9f4
                 <div class="header_exp_block">
                   <%= f.text_field :hashtags_tag_name_in, class: "blog_search_key"%>
                   <div class="header_exp_popup" >
@@ -116,45 +120,51 @@
       </div>
       <section class="blog_ranking_wrap clearfix">
         <article class="blog_ranking_block">
-          <a href="" class="link clearfix">
+          <a href="<%= blog_path(@bl_im1) %>" class="link clearfix">
             <%= image_tag("blog/rank_icon01.png", class: "num_pic") %>
             <div class="right">
               <div class="pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
-                <span class="blog_main_left_tag">
-                  <% @bl_im1.categories.each do |category| %>
-                    <%= category.category_name %>
-                  <% end %>
-                </span>
+                <% if @bl_im1.categories.any? %>
+                  <span class="blog_main_left_tag">
+                    <%unless @bl_im1.categories.first.nil? %>
+                      <%= @bl_im1.categories.first.category_name %>
+                    <% end %>
+                  </span>
+                <% end %>
               </div>
               <h1 class="title"><%= @bl_im1.blog_detail.title%></h1>
             </div>
           </a>
         </article>
         <article class="blog_ranking_block">
-          <a href="" class="link clearfix">
+          <a href="<%= blog_path(@bl_im2) %>" class="link clearfix">
             <%= image_tag("blog/rank_icon02.png", class: "num_pic") %>
             <div class="right">
               <div class="pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
-                <span class="blog_main_left_tag">
-                  <% @bl_im2.categories.each do |category| %>
-                    <%= category.category_name %>
-                  <% end %>
-                </span>
+                 <% if @bl_im2.categories.any? %>
+                  <span class="blog_main_left_tag">
+                    <%unless @bl_im2.categories.first.nil? %>
+                      <%= @bl_im2.categories.first.category_name %>
+                    <% end %>
+                  </span>
+                <% end %>
               </div>
               <h1 class="title"><%= @bl_im2.blog_detail.title%></h1>
             </div>
           </a>
         </article>
         <article class="blog_ranking_block">
-          <a href="" class="link clearfix">
+          <a href="<%= blog_path(@bl_im3) %>" class="link clearfix">
             <%= image_tag("blog/rank_icon03.png", class: "num_pic") %>
             <div class="right">
               <div class="pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
-                <span class="blog_main_left_tag">
-                  <% @bl_im3.categories.each do |category| %>
-                    <%= category.category_name %>
-                  <% end %>
-                </span>
+                <% if @bl_im3.categories.any? %>
+                  <span class="blog_main_left_tag">
+                    <%unless @bl_im3.categories.first.nil? %>
+                      <%= @bl_im3.categories.first.category_name %>
+                    <% end %>
+                  </span>
+                <% end %>
               </div>
               <h1 class="title"><%= @bl_im3.blog_detail.title%></h1>
             </div>
@@ -164,22 +174,36 @@
       
   <section class="blog_main_wrap">
     <% @blogs.each do |blog| %>
+
       <article class="blog_common_block clearfix">
-        <a href="" class="blog_pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
-          <span class="blog_main_left_tag">
-            <% blog.categories.each do |category| %>
-              <%= category.category_name %>
+        <a href="<%= blog_path(blog) %>" class="blog_pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
+         
+          <% if blog.categories.any? %>
+            <span class="blog_main_left_tag">
+            <% if !blog.categories.first.nil? %>
+              <%= blog.categories.first.category_name %>
             <% end %>
-          </span>
+            </span>
+          <% end %>
+          
         </a>
         <div class="right">
-          <a href="" class="blog_main_link">
-            <h1 class="title"><%= link_to blog.blog_detail.title, blog%></h1>
+          
+          <%= link_to blog, class: "blog_main_link" do %>
+          
+            <h1 class="title">
+              <%= blog.blog_detail.title %> 
+            </h1>
+
             <p class="text">
-              <%= blog.blog_detail.content%>
+              <%= blog.blog_detail.content %>
             </p>
-            <p class="date"><%= blog.blog_detail.updated_at%></p>
-          </a>
+            <p class="date"> <%= blog.blog_detail.updated_at %> </p>
+
+
+          <% end %>
+            
+          
           <div class="bottom">
             <p class="place">
               <%= image_tag("common/place_icon.png") %>
@@ -201,8 +225,10 @@
           <span class="talk">No Ramen, No Life!  by youyou</span>
         </div>
       </article>
-    <%end%>
+
+    <% end %>
   </section>
+
   <ul class="ex_list_up_pager bottom">
     <%= paginate @blogs, theme: 'bottom_page_theme' %>
   </ul>
