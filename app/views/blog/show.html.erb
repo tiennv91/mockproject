@@ -17,7 +17,7 @@
                 <%= category.category_name %>
               </p>
             <% end %>
-            <p class="date"><%= @blog.blog_detail.updated_at%></p>
+            <p class="date"><%= @blog.blog_detail.updated_at.strftime('%Y/%m/%d') %></p>
           </p>
         </div>
         <h1 class="blogdetail_title">
