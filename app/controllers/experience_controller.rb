@@ -22,14 +22,14 @@ class ExperienceController < ApplicationController
   end
 
   def show
-    # @experience = Experience.find(params[:id])
+    @experience = Experience.find(params[:id])
     # @exp_im1 = Experience.all.order(impressions_count: :DESC).first
     # @exp_im2 = Experience.all.order(impressions_count: :DESC).second
     # @exp_im3 = Experience.all.order(impressions_count: :DESC).third
 
-    # # breacrumb
-    # add_breadcrumb 'Blog', :experience_index_path
-    # add_breadcrumb @experience.experience_detail.title, :experience_path
+    # breacrumb
+    add_breadcrumb 'Experience', :experience_index_path
+    add_breadcrumb @experience.experience_detail.title, :experience_path
   end
 
 end

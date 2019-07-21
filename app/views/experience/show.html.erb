@@ -1,21 +1,16 @@
+<%= content_for :title_header do %>
+  Experience | SUITO
+<% end %>
 <div class="top_main_view">
   <section class="ex_mv_wrap">
     <div class="">
       <h1 class="ex_main_title">
-        Japanese Calligraphy
+        <%= @experience.experience_detail.title %>
       </h1>
       <div class="pankuzu_wrap">
         <div class="common_inner">
           <ul class="pankuzu_list">
-            <li class="pankuzu_item">
-              <a href="">Top</a>
-            </li>
-            <li class="pankuzu_item">
-              <a href="">Experience</a>
-            </li>
-            <li class="pankuzu_item">
-              <span>Japanese Calligraphy</span>
-            </li>
+            <%= render_breadcrumbs :tag => "li class='pankuzu_item'", :separator => "" %>
           </ul>
         </div>
       </div>
@@ -24,37 +19,43 @@
   <div class="exdetail_wrap clearfix">
     <section class="exdetail_left_block">
       <h1 class="exdetail_title">
-        Japanese Calligraphy on T-shirt
+        <%= @experience.experience_detail.title %>
       </h1>
       <div class="exdetail_info_wrap">
         <h2 class="exdetail_writer">Hosted by SUiTO</h2>
         <div class="exdetail_info_right">
-          <a href="" class="place"><span>Momochihama</span></a>
-          <a href="" class="tag"><span>Entertainment</span></a>
+          <a href="" class="place"><span><%= @experience.location.province%></span></a>
+          <a href="" class="tag">
+            <span>
+              <% @experience.categories.each do |category| %>
+                  <%= category.category_name %>
+              <% end %>
+            </span>
+          </a>
         </div>
       </div>
       <ul class="exdetail_intro_wrap">
         <li class="exdetail_intro_item money">
           <%= image_tag  "ex/money_icon" %>
-          ¥2,400 / guest
+          <%= number_to_currency(@experience.experience_detail.price_adult.to_f, unit: "$US", precision: 0, separator: ",", delimiter: ".", format: "%u %n")%> / guest
         </li>
         <li class="exdetail_intro_item child">
         <%= image_tag  "ex/baby_icon" %>
-          ages 12 and over
+          ages <%= @experience.experience_detail.age %>
         </li>
         <li class="exdetail_intro_item time">
           <%= image_tag  "ex/time_icon02" %>
-          2 hours total
+          <%= @experience.experience_detail.duration %> total
         </li>
         <li class="exdetail_intro_item language">
           <%= image_tag  "ex/talk_icon" %>
-          Offered in English, Chinese
+          Offered in <%= @experience.experience_detail.language %>
         </li>
       </ul>
       <div class="exdetail_what_block">
         <h3 class="exdetail_common_title">What we will do</h3>
         <p class="exdetail_common_text">
-          With this activity, you can learn how to write your favorite Japanese character s(kanji) the traditional way and then print it on a T-shirt. Do not hesitate to tell us if you have any requests concerning the style. Become the owner of a unique and stylish T-shirt designed by yourself ! It also makes a perfect gift.
+          <%= @experience.experience_detail.description %>
         </p>
       </div>
       <div class="exdetail_what_block sp">
@@ -88,8 +89,8 @@
               <%= image_tag  "ex/money_icon" %>
             </th>
             <td>
-              <p class="big">¥2,400 / guest</p>
-              <p class="small">Children ¥1,200   Infants ¥0</p>
+              <p class="big"><%= number_to_currency(@experience.experience_detail.price_adult.to_f, unit: "$US", precision: 0, separator: ",", delimiter: ".", format: "%u %n")%> / guest</p>
+              <p class="small">Children <%= number_to_currency(@experience.experience_detail.price_children.to_f, unit: "$US", precision: 0, separator: ",", delimiter: ".", format: "%u %n")%>   Infants <%= number_to_currency(@experience.experience_detail.price_infant.to_f, unit: "$US", precision: 2, separator: ",", delimiter: ".", format: "%u %n")%></p>
             </td>
           </tr>
           <tr>
@@ -97,8 +98,8 @@
               <%= image_tag  "ex/baby_icon" %>
             </th>
             <td>
-              <p class="big">ages 12 and over</p>
-              <p class="small">All guests must be at least 12 years old and children can’t come along.</p>
+              <p class="big">ages <%= @experience.experience_detail.age %></p>
+              <p class="small">All guests must be at least <%= @experience.experience_detail.age %>.</p>
             </td>
           </tr>
           <tr>
@@ -106,7 +107,7 @@
               <%= image_tag  "ex/time_icon02" %>
             </th>
             <td>
-              <p class="big">2 hours total</p>
+              <p class="big"><%= @experience.experience_detail.duration %> total</p>
               <p class="small">It does not include the clean up time</p>
             </td>
           </tr>
@@ -115,7 +116,7 @@
               <%= image_tag  "ex/talk_icon" %>
             </th>
             <td>
-              <p class="big">Offered in English, Chinese</p>
+              <p class="big">Offered in <%= @experience.experience_detail.language %></p>
               <p class="small">If you need a interpreter..... </p>
             </td>
           </tr>
