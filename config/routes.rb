@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
   
-  resources :experience
+  resources :experience do
+    collection do
+      get 'applicationform', to: "experience#application_form"
+    end
+  end
 
   resources :blog do
     collection do

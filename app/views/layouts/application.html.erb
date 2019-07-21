@@ -30,7 +30,9 @@
         </div>
       <% end %>
       <%= yield %>
-      <%= render 'layouts/sns_sidebar'%>
+      <% unless hide_side_bar? %>
+        <%= render 'layouts/sns_sidebar'%>
+      <% end %>
       <a href="#TOP" class="common_up_btn">
         <%= image_tag("common/up_arrow.png", alt: "△") %>
       </a>
