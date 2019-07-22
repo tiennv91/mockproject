@@ -25,21 +25,23 @@
 # Category.create(category_name: 'Shopping')  
 # Category.create(category_name: 'Food')
 
-# Blog.create(location_id: 1)
-# Blog.create(location_id: 2)
-# Blog.create(location_id: 3)
-# Blog.create(location_id: 4)
-# Blog.create(location_id: 5)
-# Blog.create(location_id: 6)
-# Blog.create(location_id: 2)
+
+# Blog.create(location_id: 1, admin_user_id: 1)
+# Blog.create(location_id: 2, admin_user_id: 2)
+# Blog.create(location_id: 3, admin_user_id: 1)
+# Blog.create(location_id: 4, admin_user_id: 1)
+# Blog.create(location_id: 5, admin_user_id: 2)
+# Blog.create(location_id: 6, admin_user_id: 1)
+Blog.create(location_id: 2, admin_user_id: 2)
+Blog.create(location_id: 2, admin_user_id: 2)
 
 # Experience.create(location_id: 1, admin_user_id: 1)
 # Experience.create(location_id: 2, admin_user_id: 2)
-# Experience.create(location_id: 3, admin_user_id: 4)
+# Experience.create(location_id: 3, admin_user_id: 2)
 # Experience.create(location_id: 4, admin_user_id: 1)
 # Experience.create(location_id: 5, admin_user_id: 2)
-# Experience.create(location_id: 6, admin_user_id: 4)
-# Experience.create(location_id: 2, admin_user_id: 3)
+# Experience.create(location_id: 6, admin_user_id: 1)
+# Experience.create(location_id: 2, admin_user_id: 2)
 
 # BlogHashtag.create(blog_id: 1, hashtag_id: 1)
 # BlogHashtag.create(blog_id: 1, hashtag_id: 2)
@@ -91,6 +93,7 @@
 
 # Role.create(name: 'admin')
 # Role.create(name: 'host')
-# Role.create(name: 'user')
 
 # AdminUser.create(fullname: 'admin', email: 'admin@example.com', password: '123456', role_id: '1')
+
+# AdminUser.create(fullname: 'admin1', email: 'admin1@example.com', password: '123456', role_id: '2')

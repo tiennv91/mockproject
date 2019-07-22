@@ -100,7 +100,9 @@
                 </div>
                 <h1 class="title"><%= link_to exp.experience_detail.title, exp %></h1>
                 <p class="text">
+                <%if exp.experience_detail.description.present?%>
                   <%= exp.experience_detail.description.truncate(140) %>
+                <%end%>
                 </p>
               </a>
               <div class="ex_common_down">
