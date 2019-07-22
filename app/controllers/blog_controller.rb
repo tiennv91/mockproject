@@ -10,8 +10,8 @@ class BlogController < ApplicationController
     @popular_blogs = Blog.popular
 
     @search = Blog.ransack(params[:q])
-    @categories = Category.all
-    @locations = Location.all
+    @categories = CategoryService.new.call
+    @locations = LocationService.new.call
     @search.sorts = 'created_at desc' if @search.sorts.empty?
     @blogs = @search.result(distinct: true).order(created_at: :DESC).page(params[:page]).per(3)
     

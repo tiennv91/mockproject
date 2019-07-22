@@ -43,7 +43,7 @@
             <% end %>
           </div>
           <div class="ex_main_right">
-            <form action="" method="" class="ex_main_form">
+            <%= search_form_for @search,url: search_experience_index_path , class: "ex_main_form" do |f| %>
               <div class="header_search_block ex_main_search">
                 <input type="text" name="ex_date" autocomplete="off" class="header_search_date" id="ExSearchDate">
                 <div class="header_exp_block">
@@ -84,9 +84,9 @@
                     
                   </div>
                 </div>
-                <input type="submit" value="検索" class="header_search_submit">
+                <%= f.submit "Search", class: "header_search_submit" %>
               </div>
-            </form>
+            <% end %>
           </div>
         </div>
       </div>

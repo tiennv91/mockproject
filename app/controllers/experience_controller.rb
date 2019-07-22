@@ -1,7 +1,7 @@
 class ExperienceController < ApplicationController
   def index
     add_breadcrumb 'Experience', :experience_index_path
-    @experiences = Experience.all.order(updated_at: :DESC).page(params[:page]).per(6)
+    # @experiences = Experience.all.order(updated_at: :DESC).page(params[:page]).per(6)
     @hot_exp = ExperienceService.new.latest
 
     @search = Experience.ransack(params[:q])
@@ -26,9 +26,9 @@ class ExperienceController < ApplicationController
   end
 
   def search
-    CategoryService.new.search
-    index
-    render :index
+    # CategoryService.new.search
+    # index
+    # render :index
   end 
   
   def application_form
