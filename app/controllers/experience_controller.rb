@@ -3,9 +3,6 @@ class ExperienceController < ApplicationController
     add_breadcrumb 'Experience', :experience_index_path
     @experiences = Experience.all.order(updated_at: :DESC).page(params[:page]).per(6)
     @hot_exp = ExperienceService.new.latest
-    @experience_count = Experience.count
-    @page = params[:pagenum].to_i
-    @last_page = @experiences.total_pages
 
     @search = Experience.ransack(params[:q])
     @categories = CategoryService.new.call
@@ -22,8 +19,6 @@ class ExperienceController < ApplicationController
   def show
     @experience = Experience.find(params[:id])
     @recommends = ExperienceService.new.recommend(@experience)
-    # @exp_im2 = Experience.all.order(impressions_count: :DESC).second
-    # @exp_im3 = Experience.all.order(impressions_count: :DESC).third
 
     # breacrumb
     add_breadcrumb 'Experience', :experience_index_path

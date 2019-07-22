@@ -18,7 +18,7 @@
       <div class="ex_main_block">
         <div class="ex_main_block_inner">
           <div class="ex_main_left">
-            <% if @hot_exp.present? %>
+            <% if @hot_exp.present? && @hot_exp.experience_detail.present? %>
               <div class="ex_main_pic" style="background: url(<%= image_url('ex/sample_pic')%>) center center no-repeat;background-size: cover;">
                 <p class="ex_new_tag">
                   <%= image_tag("ex/new_icon") %>
@@ -103,14 +103,16 @@
         <% if @experiences.present? %>
           <% @experiences.each do |exp| %>
             <article class="ex_comon_list">
-              <a href="" class="ex_common_up">
+              <a href="<%= experience_path(exp) %>" class="ex_common_up">
                 <div class="ex_common_pic" style="background: url(<%= image_url('ex/pic01')%>) center center no-repeat;background-size: cover;">
                   <div class="filter"></div>
                   <span class="price_tag"><%= number_to_currency(exp.experience_detail.price_adult.to_f, unit: "$US", precision: 0, separator: ",", delimiter: ".", format: "%u %n")%></span>
                 </div>
                 <h1 class="title"><%= link_to exp.experience_detail.title, exp %></h1>
                 <p class="text">
+                <%if exp.experience_detail.description.present?%>
                   <%= exp.experience_detail.description.truncate(140) %>
+                <%end%>
                 </p>
               </a>
               <div class="ex_common_down">

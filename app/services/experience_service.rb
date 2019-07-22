@@ -17,4 +17,8 @@ class ExperienceService
   def latest
     @experience = Experience.all.order(created_at: :DESC).first
   end 
+
+  def hottest
+    @experiences = Experience.all.order(created_at: :DESC).first(8)
+  end 
 end 
