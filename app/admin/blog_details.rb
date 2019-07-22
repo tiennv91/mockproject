@@ -18,8 +18,15 @@ ActiveAdmin.register BlogDetail do
     selectable_column
     column :id
     column :title
-    column :content    
+    column :description
     actions
+  end
+  show do
+    attributes_table do
+      row :title
+      row (:content) { |con| raw(con.content) }
+    end
+    active_admin_comments
   end
 
   filter :title

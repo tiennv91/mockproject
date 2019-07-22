@@ -2,17 +2,14 @@
 
 class BlogController < ApplicationController
   impressionist
-
+  # helpe r_method :page_count
   def index
     # breadcrumb
     add_breadcrumb 'Blog', :blog_index_path
     @blogs = Blog.all.order(created_at: :DESC).page(params[:page]).per(3)
     @blog_first = Blog.all.order(created_at: :DESC).first
    
-    @bl_im1 = Blog.all.order(impressions_count: :DESC).first
-    @bl_im2 = Blog.all.order(impressions_count: :DESC).second
-    @bl_im3 = Blog.all.order(impressions_count: :DESC).third
-
+    @popular_blogs = Blog.popular
 
     @search = Blog.ransack(params[:q])
     @categories = Category.all
@@ -21,21 +18,36 @@ class BlogController < ApplicationController
     @search.sorts = 'blog_details.title desc' if @search.sorts.empty?
     @blogs = @search.result(distinct: true).order(created_at: :DESC).page(params[:page]).per(3)
 
-    @blog_count = Blog.count
-    @page = params[:page].to_i
-    @last_page = @blogs.total_pages
-
     respond_to do |format|
       format.html
       format.json { render json: @blogs }
     end
   end
+  
+  # def page_count
+  #   @blog_count = Blog.count
+  #   @page = params[:page].to_i
+  #   if @page == 0
+  #     if @blog_count < 3
+  #       @blog_count
+  #     else
+  #       3
+  #     end
+  #   elsif @page > 0
+  #     if @page == @blogs.total_pages
+  #       @blog_count
+  #     elsif @page > @blogs.total_pages
+  #       @page
+  #     else
+  #       3*@page
+  #     end
+  #   end
+  #   page_count
+  # end
 
   def show
     @blog = Blog.find(params[:id])
-    @bl_im1 = Blog.all.order(impressions_count: :DESC).first
-    @bl_im2 = Blog.all.order(impressions_count: :DESC).second
-    @bl_im3 = Blog.all.order(impressions_count: :DESC).third
+    @popular_blogs = Blog.popular
     @hashtags = Hashtag.all
 
     # breacrumb
