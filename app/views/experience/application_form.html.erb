@@ -1,21 +1,7 @@
 <div class="top_main_view">
-  <section class="ex_mv_wrap">
-    <div class="">
-      <h1 class="ex_main_title">
-        Japanese Calligraphy
-        <img src=<%= image_path("common/spring_icon.png") %> alt="Japanese Calligraphy">
-      </h1>
-    </div>
-  </section>
+  <%= render 'experience/commons/ex_mv_wrap' %>
   <div class="common_inner">
-    <ul class="form_step_list">
-      <li class="active">1. Application form</li>
-      <li class="">2. Confirm</li>
-      <li class="">3. Send Request</li>
-      <li class="">4. Receive Confirmation Email</li>
-      <li class="">5. Payment</li>
-      <li class="">6. Complete</li>
-    </ul>
+    <%= render 'components/form_step_list' %>
     <div class="exdetail_wrap clearfix">
       <section class="exdetail_left_block">
         <div class="form_wrap">
