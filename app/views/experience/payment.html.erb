@@ -1,0 +1,178 @@
+<div class="top_main_view">
+    <%= render 'experience/commons/ex_mv_wrap' %>
+    <div class="common_inner">
+      <%= render 'components/form_step_list' %>
+      <div class="exdetail_wrap clearfix">
+        <section class="exdetail_left_block payment_left_block">
+          <div class="form_wrap">
+            <form action="" method="">
+              <p class="form_top_text">
+                We have received your application.<br>
+                Please check it and go ahead the payment process.<br>
+                We will send your Email (or you requested Email) a  Voucher after we confirm payment.
+              </p>
+              
+              <div class="form_sub_profile_wrap">
+                <p class="form_common_title">Payment Details</p>
+                  
+                <p class="payment_common_title">Payment type<span>*</span></p>
+                <div class="payment_choose_card_block">
+                  <select name="card" class="payment_select_long" id="CardChoose">
+                    <option value=""></option>
+                    <option value="VISA">VISA</option>
+                    <option value="MASTER CARD">MASTER CARD</option>
+                    <option value="JCB">JCB</option>
+                    <option value="AMERICAN EXPRESS">AMERICAN EXPRESS</option>
+                    <option value="DINERS CLUB">DINERS CLUB</option>
+                    <option value="PAYPAL">PAY PAL</option>
+                  </select>
+                  <div class="payment_pic_block">
+                    <img src=<%= image_path("form/card_pic01.png") %>>
+                    <img src=<%= image_path("form/card_pic02.png") %>>
+                    <img src=<%= image_path("form/card_pic03.png") %>>
+                    <img src=<%= image_path("form/card_pic04.png") %>>
+                    <img src=<%= image_path("form/card_pic05.png") %>>
+                    <img src=<%= image_path("form/card_pic06.png") %>>
+                  </div>
+                </div>
+                <div class="payment_card_information">
+	                <p class="payment_common_title">Card number<span>*</span></p>
+	                <div class="payment_card_num">
+	                  <input type="text" name="card_num" class="payment_card_input_long">
+	                </div>
+	                <div class="payment_card_info_block">
+	                  <div class="payment_card_info_left">
+	                    <p class="payment_common_title">Expiration<span>*</span></p>
+	                    <select name="cardmonth" class="payment_select_short">
+	                      <option>MM</option>
+	                      <option value="01">01</option>
+	                      <option value="02">02</option>
+	                      <option value="03">03</option>
+	                      <option value="04">04</option>
+	                      <option value="05">05</option>
+	                      <option value="06">06</option>
+	                      <option value="07">07</option>
+	                      <option value="08">08</option>
+	                      <option value="09">09</option>
+	                      <option value="10">10</option>
+	                      <option value="11">11</option>
+	                      <option value="12">12</option>
+	                    </select>
+	                    <select name="cardyear" class="payment_select_short">
+	                      <option>YYYY</option>
+	                      <option value="2018">2018</option>
+	                      <option value="2019">2019</option>
+	                      <option value="2020">2020</option>
+	                      <option value="2021">2021</option>
+	                      <option value="2022">2022</option>
+	                      <option value="2023">2023</option>
+	                      <option value="2024">2024</option>
+	                      <option value="2025">2025</option>
+	                      <option value="2026">2026</option>
+	                      <option value="2027">2027</option>
+	                      <option value="2028">2028</option>
+	                      <option value="2029">2029</option>
+	                    </select>
+	                  </div>
+	                  <div class="payment_card_info_right">
+	                    <p class="payment_common_title">Security code<span>*</span><small id="CardInfo">?</small></p>
+	                    <div class="payment_card_security_block">
+	                      <input type="text" name="security" class="payment_card_input_short">
+	                      <img src=<%= image_path("form/card_back01.png") %> id="Others" class="payment_security_pic" style="display: none;">
+	                      <img src=<%= image_path("form/card_back02.png") %> id="American" class="payment_security_pic active" style="display: none;">
+	                    </div>
+	                  </div>  
+	                </div> 
+	                <p class="payment_common_title">Name on card<span>*</span></p>
+	                <div class="payment_card_name">
+	                  <input type="text" name="card_firstname" class="payment_card_input_long" placeholder="First name">
+	                  <input type="text" name="card_lastname" class="payment_card_input_long" placeholder="Last name">
+	                </div>
+                </div>
+                
+                <div class="form_accept_wrap payment_accept">
+                  <p class="form_common_error_msg">*Required.</p>
+                  <div class="checkbox_style">
+    					      <input type="checkbox" name="accept_terms" value="acceptterms" id="AcceptTerms">
+    					      <label for="AcceptTerms"><span>have read and accepted <a href="" class="form_common_title">Terms of service<span>*</span></a>.</span></label>
+        					</div>
+                </div>
+              </div>
+              
+              <p class="payment_paypal_text" style="display: none;">Please log in to PayPal and complete your payment procedures.</p>
+              
+              <input type="submit" value="Book Now" class="form_subtmit_btn" id="BookNow">
+              <input type="submit" value="Log in to PayPal" class="form_subtmit_btn noactive" id="PayPalLogin">
+            </form>
+          </div>
+        </section>
+        <aside class="exdetail_right_block" style="height: 916px;">
+          <div class="exdetail_right_top" style="position: absolute; top: 0px;">
+            <div class="panment_aside_top">
+              <p class="payment_aside_date">Sat, October 7</p>
+              <p class="payment_aside_time">
+                <span class="start">10:00 start</span>
+                <span class="range">2 hours total</span>
+              </p>
+            </div>
+            <div class="form_aside_box">
+              <p class="form_aside_box_title">Ms. Abby Suzuki</p>
+              <table class="payment_aside_table">
+                <tbody><tr>
+                  <td>¥2,400</td>
+                  <td>2 adults</td>
+                  <td>¥4,800</td>
+                </tr>
+                <tr>
+                  <td>¥1,200</td>
+                  <td>1 child</td>
+                  <td>¥1,200</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="big">Interpreter</td>
+                  <td>¥2,160</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="bold">Total</td>
+                  <td class="bold">¥8,160</td>
+                </tr>
+              </tbody></table>
+            </div>
+            <div class="form_aside_box">
+              <p class="form_aside_box_title">Provided</p>
+              <p class="form_aside_box_text">
+                ・Shodo trial set<br>
+                ・T-Shirt<br>
+                ・Tea or water
+              </p>
+            </div>
+            <div class="form_aside_box">
+              <p class="form_aside_box_title">Cancellation policy</p>
+              <p class="form_aside_box_text">
+                Get a full refund if you cancel within 24 hours of purchase.
+              </p>
+            </div>
+            <div class="form_aside_box">
+	            <p class="form_aside_box_title">SUiTO FUKUOKA Rental space</p>
+              <p class="payment_aside_address">
+                1-2-29, Imaizumi, Chuo-ku , Fukuoka city
+              </p>
+              <p class="payment_aside_address">
+                TEL : 092-724-1055 
+              </p>
+              <a href="" class="payment_map_btn">Map</a>
+            </div>
+<!--
+            <div class="form_aside_box">
+	            <p class="form_aside_box_title">SUiTO FUKUOKA Rental space</p>
+              <p class="payment_aside_address">
+                1-2-29, Imaizumi, Chuo-ku , Fukuoka city
+              </p>
+              <p class="payment_right_text">Hosted by SUiTO</p>
+            </div>
+-->
+          </div>
+        </aside>
+      </div>
+	  </div>
+  </div>

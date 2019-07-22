@@ -1,0 +1,116 @@
+<div class="top_main_view">
+    <%= render 'experience/commons/ex_mv_wrap' %>
+    <div class="common_inner">
+      <%= render 'components/form_step_list' %>
+      <div class="exdetail_wrap clearfix">
+        <section class="exdetail_left_block payment_left_block" style="height: 646px;">
+          <p class="thanks_common_text">
+            We have confirmed your payment.<br>
+            Thank you for your reservation.<br><br>
+            This is your Voucher.<br>
+            Please arrive on time for the experience and show it.
+          </p>
+          <a href="" class="thanks_map_link" target="_blank" rel="nofollow">MAP</a>
+          <p class="thanks_common_text">
+            You can send a Voucher to your friends and family by SNS or Email.
+          </p>
+          <div class="thanks_sns_mail_block">
+            <div class="thanks_sns_block">
+              <a href="" class="thanks_sns_btn">
+                <img src=<%= image_path("common/side_fb.png") %> >
+              </a>
+              <a href="" class="thanks_sns_btn">
+                <img src=<%= image_path("common/side_insta.png") %> >
+              </a>
+              <a href="" class="thanks_sns_btn">
+                <img src=<%= image_path("common/side_twitter.png") %> >
+              </a>
+              <p class="thanks_mail_btn" id="ThanksMail">
+                <img src=<%= image_path("form/mail_icon.png") %> >
+              </p>
+            </div>
+            <div class="thanks_mail_wrap">
+              <form action="" method="" class="clearfix">
+                <input type="text" name="mail_to" class="thanks_mail_input">
+                <textarea name="mail_msg" class="thanks_msg" placeholder="Massege..."></textarea>
+                <input type="submit" value="send" class="thanks_submit">
+              </form>
+            </div>
+          </div>
+          <p class="thanks_cancel_text">
+            <span>*Cancellation policy</span>
+            Get a full refund if you cancel within 24 hours of purchase.<br>
+            Please call SUiTO : 092-724-1055 
+          </p>
+        </section>
+        <aside class="exdetail_right_block" style="height: 646px; padding-bottom: 100px;">
+          <div class="exdetail_right_top thanks" style="position: absolute; top: 0px;">
+            <div class="panment_aside_top">
+              <p class="payment_aside_date">Sat, October 7</p>
+              <p class="payment_aside_time">
+                <span class="start">10:00 start</span>
+                <span class="range">2 hours total</span>
+              </p>
+            </div>
+            <div class="form_aside_box">
+              <p class="form_aside_box_title">Ms. Abby Suzuki</p>
+              <table class="payment_aside_table">
+                <tbody><tr>
+                  <td>¥2,400</td>
+                  <td>2 adults</td>
+                  <td>¥4,800</td>
+                </tr>
+                <tr>
+                  <td>¥1,200</td>
+                  <td>1 child</td>
+                  <td>¥1,200</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="big">Interpreter</td>
+                  <td>¥2,160</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="bold">Total</td>
+                  <td class="bold">¥8,160</td>
+                </tr>
+              </tbody></table>
+            </div>
+            <div class="form_aside_box">
+              <p class="form_aside_box_title">Provided</p>
+              <p class="form_aside_box_text">
+                ・Shodo trial set<br>
+                ・T-Shirt<br>
+                ・Tea or water
+              </p>
+            </div>
+            <div class="form_aside_box">
+              <p class="form_aside_box_title">Cancellation policy</p>
+              <p class="form_aside_box_text">
+                Get a full refund if you cancel within 24 hours of purchase.
+              </p>
+            </div>
+            <div class="form_aside_box">
+	            <p class="form_aside_box_title">SUiTO FUKUOKA Rental space</p>
+              <p class="payment_aside_address">
+                1-2-29, Imaizumi, Chuo-ku , Fukuoka city
+              </p>
+              <p class="payment_aside_address">
+                TEL : 092-724-1055 
+              </p>
+              <a href="" class="payment_map_btn">Map</a>
+            </div>
+<!--
+            <div class="form_aside_box">
+	            <p class="form_aside_box_title">SUiTO FUKUOKA Rental space</p>
+              <p class="payment_aside_address">
+                1-2-29, Imaizumi, Chuo-ku , Fukuoka city
+              </p>
+              <p class="payment_right_text">Hosted by SUiTO</p>
+            </div>
+-->
+          </div>
+        </aside>
+      </div>
+      <%= render 'experience/commons/recommended_experience_in_place'%>
+	  </div>
+  </div>

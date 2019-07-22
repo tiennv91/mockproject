@@ -14,6 +14,7 @@
 //= require jquery-2.2.3.min
 //= require common 
 //= require flexibility
+//= require jquery.matchHeight
 //= require bootstrap.min
 //= require moment.min
 //= require daterangepicker
