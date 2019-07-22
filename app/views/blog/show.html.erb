@@ -17,7 +17,7 @@
                 <%= category.category_name %>
               </p>
             <% end %>
-            <p class="date"><%= @blog.blog_detail.updated_at%></p>
+            <p class="date"><%= @blog.blog_detail.updated_at.strftime('%Y/%m/%d') %></p>
           </p>
         </div>
         <h1 class="blogdetail_title">
@@ -29,53 +29,20 @@
         </p>
       </div>
       <div class="blogdetail_textarea">
-        <%= @blog.blog_detail.content%>
+        <%= @blog.blog_detail.content.try(:html_safe)%>
       </div>
       <div class="blogdetail_keywords_wrap">
         <p class="blogdetail_common_title">
           Blog keywords
         </p>
         <ul class="tag_list">
-          <li>
-            <a href="" class="tag">
-              #Ramen
-            </a>
-          </li>
-          <li>
-            <a href="" class="tag">
-              #Photogenic
-            </a>
-          </li>
-          <li>
-            <a href="" class="tag">
-              #High Ratings
-            </a>
-          </li>
-          <li>
-            <a href="" class="tag">
-              #Ramen
-            </a>
-          </li>
-          <li>
-            <a href="" class="tag">
-              #Photogenic
-            </a>
-          </li>
-          <li>
-            <a href="" class="tag">
-              #High Ratings
-            </a>
-          </li>
-          <li>
-            <a href="" class="tag">
-              #Ramen
-            </a>
-          </li>
-          <li>
-            <a href="" class="tag">
-              #Photogenic
-            </a>
-          </li>
+          <% @hashtags.each do |hash_tag| %>
+            <li>
+              <a href="" class="tag">
+                  #<%= hash_tag.tag_name %>
+              </a>
+            </li>
+          <% end %>
           <li>
             <a href="" class="tag">
               #High Ratings
@@ -214,30 +181,16 @@
       </div>
       <div class="blodetail_aside_ranking">
         <p class="blogdetail_aside_title">Blog ranking</p>
-        <article class="blogdetail_ranking_block">
-          <a href="" class="link clearfix">
-            <%= image_tag("blog/rank_icon01", class: "num_pic") %>
-            <div class="pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;">
-            </div>
-            <h1 class="title"><%= @bl_im1.blog_detail.title%></h1>
-          </a>
-        </article>
-        <article class="blogdetail_ranking_block">
-          <a href="" class="link clearfix">
-            <%= image_tag("blog/rank_icon02", class: "num_pic") %>
-            <div class="pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;">
-            </div>
-            <h1 class="title"><%= @bl_im2.blog_detail.title%></h1>
-          </a>
-        </article>
-        <article class="blogdetail_ranking_block">
-          <a href="" class="link clearfix">
-            <%= image_tag("blog/rank_icon03", class: "num_pic") %>
-            <div class="pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;">
-            </div>
-            <h1 class="title"><%= @bl_im3.blog_detail.title%></h1>
-          </a>
-        </article>
+        <%@popular_blogs.each do |blog|%>
+          <article class="blogdetail_ranking_block">
+            <a href="" class="link clearfix">
+              <%= image_tag("blog/rank_icon03", class: "num_pic") %>
+              <div class="pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;">
+              </div>
+              <h1 class="title"><%= blog.blog_detail.title%></h1>
+            </a>
+          </article>
+        <%end%>
       </div>
       <div class="blodetail_aside_ranking">
         <p class="blogdetail_aside_title">Blog category</p>

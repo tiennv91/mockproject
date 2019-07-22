@@ -29,10 +29,10 @@
       <div class="top_mv_search_wrap">
         <form action="" method="" class="top_mv_form">
           <div class="header_search_block top_mv">
-            <input type="text" name="top_date" class="header_search_date" id="MvSearchDate" placeholder="Any Time">
-            <input type="text" name="top_place" class="header_search_place" id="MvSearchPlace" placeholder="Any Where">
+            <input type="text" name="top_date" autocomplete="off" class="header_search_date" id="MvSearchDate" placeholder="Any Time">
+            <input type="text" name="top_place" autocomplete="off" class="header_search_place" id="MvSearchPlace" placeholder="Any Where">
             <div class="header_exp_block">
-              <input type="text" name="top_exp" class="header_search_exp" id="MvSearchExp" placeholder="All Experience">
+              <input type="text" name="top_exp" class="header_search_exp" autocomplete="off" id="MvSearchExp" placeholder="All Experience">
             </div>
             <input type="submit" value="検索" class="header_search_submit">
           </div>
@@ -442,7 +442,7 @@
               <p class="money_type MoneyCountry" id="MoneyChange">EUR</p>
             </div>
           </div>
-          <button class="top_money_change_btn">calculate</button>
+          <button class="top_money_change_btn" id="calculate_main">calculate</button>
         </div>
         <div class="top_money_right clearfix">
           <ul class="top_money_list">
@@ -511,89 +511,36 @@
         <%= image_tag('top/top_title06')%>
       </h1>
       <div class="top_blog_main">
-        <article class="top_blog_up">
-          <a href="">
-            <div class="top_blog_pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;"></div>
-            <div class="top_blog_info">
-              <h1 class="top_blog_title">
-                <span>Souvenirs in Hakata station</span>
-              </h1>
-              <div class="top_blog_inner">
-                <div class="left">
-                  <p class="date">2017/08/14</p>
-                  <ul class="top_blog_tag">
-                    <li class="top_blog_tag_item">
-                      <p class="top_blog_tag_link" id="">#Shopping</p>
-                    </li>
-                    <li class="top_blog_tag_item">
-                      <p class="top_blog_tag_link" id="">#Station</p>
-                    </li>
-                  </ul>
-                </div>
-                <div class="top_blog_people_pic" style="background: url(<%= image_url('common/sample_people')%>) center center no-repeat;background-size: cover;"></div>
-              </div>
-              <p class="top_blog_text">
-                There are plenty of regular souvenirs but why not taking time to choose something a bit more special? We selected 10 items that you can easily find in the city center. We excluded items that you can immediately find on the internet; at the Airport or at the station......
-              </p>
-            </div>
-          </a>
-        </article>
         <div class="top_blog_bottom">
           <div class="top_blog_left">
+            <% @popular_blogs.each do |blog|%>
             <article class="top_common_blog">
               <a href="">
                 <div class="top_blog_pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;"></div>
                 <div class="top_blog_info">
                   <h1 class="top_blog_title">
-                    <span>Souvenirs in Hakata station</span>
+                    <span><%= blog.blog_detail.title%></span>
                   </h1>
                   <div class="top_blog_inner">
                     <div class="left">
-                      <p class="date">2017/08/14</p>
+                      <p class="date"><%= blog.updated_at%></p>
                       <ul class="top_blog_tag">
-                        <li class="top_blog_tag_item">
-                          <p class="top_blog_tag_link" id="">#Shopping</p>
-                        </li>
-                        <li class="top_blog_tag_item">
-                          <p class="top_blog_tag_link" id="">#Station</p>
-                        </li>
+                        <% blog.hashtags.each do |hash_tag| %>
+                          <li class="top_blog_tag_item">
+                            <p class="top_blog_tag_link" id="">#<%= hash_tag.tag_name %></p>
+                          </li>
+                        <% end %>
                       </ul>
                     </div>
                     <div class="top_blog_people_pic" style="background: url(<%= image_url('common/sample_people')%>) center center no-repeat;background-size: cover;"></div>
                   </div>
                   <p class="top_blog_text">
-                    There are plenty of regular souvenirs but why not taking time to choose something a bit more special? We selected 10 items that you can easily find in the city center. We excluded items that you can immediately find on the internet; at the Airport or at the station......
+                    <%= blog.blog_detail.content%>
                   </p>
                 </div>
               </a>
             </article>
-            <article class="top_common_blog">
-              <a href="">
-                <div class="top_blog_pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;"></div>
-                <div class="top_blog_info">
-                  <h1 class="top_blog_title">
-                    <span>Souvenirs in Hakata station</span>
-                  </h1>
-                  <div class="top_blog_inner">
-                    <div class="left">
-                      <p class="date">2017/08/14</p>
-                      <ul class="top_blog_tag">
-                        <li class="top_blog_tag_item">
-                          <p class="top_blog_tag_link" id="">#Shopping</p>
-                        </li>
-                        <li class="top_blog_tag_item">
-                          <p class="top_blog_tag_link" id="">#Station</p>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="top_blog_people_pic" style="background: url(<%= image_url('common/sample_people')%>) center center no-repeat;background-size: cover;"></div>
-                  </div>
-                  <p class="top_blog_text">
-                    There are plenty of regular souvenirs but why not taking time to choose something a bit more special? We selected 10 items that you can easily find in the city center. We excluded items that you can immediately find on the internet; at the Airport or at the station......
-                  </p>
-                </div>
-              </a>
-            </article>
+            <%end%>
             <p class="common_sp_more">more</p>
           </div>
           <div class="top_blog_right">

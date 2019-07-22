@@ -5,7 +5,7 @@
   <section class="ex_mv_wrap">
     <div class="">
       <h1 class="ex_main_title">
-        Blog
+        Blog 
         <%= image_tag("common/spring_icon.png", alt: "find things to do in Fukuoka") %>
       </h1>
       <div class="pankuzu_wrap">
@@ -48,9 +48,9 @@
           </div>
           <div class="ex_main_right">
             <div class="header_search_block ex_main_search">
-              <%= search_form_for @search,url: search_blog_index_path , class: "ex_main_form",html: { method: :post } do |f| %>
+              <%= search_form_for @search,url: search_blog_index_path , class: "ex_main_form" do |f| %>
                 <div class="header_exp_block">
-                  <input type="text" name="q[categoty_category_name_cont]" class="blog_search_cat" id="BlogCat">
+                  <%= f.search_field :categories_category_name_in, class: "blog_search_cat", id: "BlogCat"%>
                   <div class="header_exp_popup" id="BlogCatPop">
                     <div class="" id="BlogCat_Choose">
                       <ul class="top_mv_place_list">
@@ -61,9 +61,9 @@
                     </div>
                   </div>
                 </div>
-                <%= f.text_field :hashtags_tag_name_cont, class: "blog_search_key" %>
+                <%= f.search_field :hashtags_tag_name_or_hashtags_tag_name_cont_any, class: 'blog_search_key'%>
                 <div class="header_exp_block">
-                  <input type="text" name="q[location_province_cont]" class="header_search_place" id="ExSearchPlace">
+                  <%= f.search_field :location_province_in, class: "header_search_place", id: "ExSearchPlace"%>
                   <div class="header_exp_popup" id="ExPlacePop">
                     <div class="" id="EXSearchPlace_Choose">
                       <ul class="top_mv_place_list">
@@ -85,71 +85,65 @@
   <div class="common_inner">
     <section class="ex_list_block">
       <div class="ex_list_top_area">
-        <p class="ex_list_num"><span><%= %></span><span>/</span><span><%= @blog_count%></span> blogs</p>
-        <%= paginate @blogs%>
+        <p class="ex_list_num">
+         
+        </p>
       </div>
       <section class="blog_ranking_wrap clearfix">
+      <% @popular_blogs.each do |blog|%>
         <article class="blog_ranking_block">
-          <a href="" class="link clearfix">
+          <a href="<%= blog_path(blog) %>" class="link clearfix">
             <%= image_tag("blog/rank_icon01.png", class: "num_pic") %>
             <div class="right">
               <div class="pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
-                <span class="blog_main_left_tag">
-                  <% @bl_im1.categories.each do |category| %>
-                    <%= category.category_name %>
-                  <% end %>
-                </span>
+                <% if blog.categories.any? %>
+                  <span class="blog_main_left_tag">
+                    <%unless blog.categories.first.nil? %>
+                      <%= blog.categories.first.category_name %>
+                    <% end %>
+                  </span>
+                <% end %>
               </div>
-              <h1 class="title"><%= @bl_im1.blog_detail.title%></h1>
+              <h1 class="title"><%= blog.blog_detail.title%></h1>
             </div>
           </a>
         </article>
-        <article class="blog_ranking_block">
-          <a href="" class="link clearfix">
-            <%= image_tag("blog/rank_icon02.png", class: "num_pic") %>
-            <div class="right">
-              <div class="pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
-                <span class="tag">Culture</span>
-              </div>
-              <h1 class="title"><%= @bl_im2.blog_detail.title%></h1>
-            </div>
-          </a>
-        </article>
-        <article class="blog_ranking_block">
-          <a href="" class="link clearfix">
-            <%= image_tag("blog/rank_icon03.png", class: "num_pic") %>
-            <div class="right">
-              <div class="pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
-                <span class="blog_main_left_tag">
-                  <% @bl_im2.categories.each do |category| %>
-                    <%= category.category_name %>
-                  <% end %>
-                </span>
-              </div>
-              <h1 class="title"><%= @bl_im3.blog_detail.title%></h1>
-            </div>
-          </a>
-        </article>
+      <%end%>
+
       </section>
       
   <section class="blog_main_wrap">
     <% @blogs.each do |blog| %>
+
       <article class="blog_common_block clearfix">
-        <a href="" class="blog_pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
-          <span class="blog_main_left_tag">
-            <% @bl_im3.categories.each do |category| %>
-              <%= category.category_name %>
+        <a href="<%= blog_path(blog) %>" class="blog_pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
+         
+          <% if blog.categories.any? %>
+            <span class="blog_main_left_tag">
+            <% if !blog.categories.first.nil? %>
+              <%= blog.categories.first.category_name %>
             <% end %>
-          </span>
+            </span>
+          <% end %>
+          
         </a>
         <div class="right">
-          <a href="" class="blog_main_link">
-            <h1 class="title"><%= link_to blog.blog_detail.title, blog%></h1>
-            <p class="text">
-              <%= blog.blog_detail.content%>
+          
+          <%= link_to blog, class: "blog_main_link" do %>
+          
+            <h1 class="title">
+              <%= blog.blog_detail.title %> 
+            </h1>
+
+            <p class="text" id="block-with-text">
+              <%= blog.blog_detail.description %>
             </p>
-            <p class="date"><%= blog.blog_detail.updated_at%></p>
-          </a>
+            <p class="date"> <%= blog.blog_detail.updated_at.strftime("%Y/%m/%d") %> </p>
+
+
+          <% end %>
+            
+          
           <div class="bottom">
             <p class="place">
               <%= image_tag("common/place_icon.png") %>
@@ -171,8 +165,10 @@
           <span class="talk">No Ramen, No Life!  by youyou</span>
         </div>
       </article>
-    <%end%>
+
+    <% end %>
   </section>
+
   <ul class="ex_list_up_pager bottom">
     <%= paginate @blogs, theme: 'bottom_page_theme' %>
   </ul>

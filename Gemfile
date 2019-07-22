@@ -13,8 +13,8 @@ gem 'puma', '~> 3.11'
 # Use Devise for login
 gem 'devise'
 
-# Use Cancancan for authorization
-gem 'cancancan'
+# Use Cancan for authorization
+gem 'cancan'
 
 # Use Activeadmin for admin management
 gem 'activeadmin', '~> 2.2'
@@ -41,6 +41,11 @@ gem 'impressionist'
 
 # Use ransack for searching
 gem 'ransack'
+
+# Use ckeditor for edit blog 
+gem 'ckeditor'
+gem 'paperclip'
+gem 'mini_magick'
 
 # Use social-share-button for sharing facebook, instagram, twitter,...
 gem 'social-share-button'

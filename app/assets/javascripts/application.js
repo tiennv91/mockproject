@@ -14,12 +14,14 @@
 //= require jquery-2.2.3.min
 //= require common 
 //= require flexibility
+//= require jquery.matchHeight
 //= require bootstrap.min
 //= require moment.min
 //= require daterangepicker
 //= require modernizr.custom
 //= require jquery.bxslider.min
 //= require jquery.hoverfold
+//= require currency.min
 //= require exchange_currency_api
 //= require social-share-button
 //= require popper
