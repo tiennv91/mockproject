@@ -1,6 +1,7 @@
 class Blog < ApplicationRecord
   has_one :blog_detail
 
+  belongs_to :admin_user
   belongs_to :location
 
   has_many :blog_hashtags

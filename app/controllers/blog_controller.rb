@@ -2,28 +2,24 @@
 
 class BlogController < ApplicationController
   impressionist
-  # helpe r_method :page_count
   def index
     # breadcrumb
     add_breadcrumb 'Blog', :blog_index_path
-    @blogs = Blog.all.order(created_at: :DESC).page(params[:page]).per(3)
     @blog_first = Blog.all.order(created_at: :DESC).first
-   
+    @page = params[:page].to_i
     @popular_blogs = Blog.popular
     @categories = Category.all
     @locations = Location.all
-    @hashtags = Hashtag.all
 
     @search = Blog.ransack(params[:q])
-    @search.sorts = 'blog_details.title desc' if @search.sorts.empty?
+    @search.sorts = 'created_at desc' if @search.sorts.empty?
     @blogs = @search.result(distinct: true).order(created_at: :DESC).page(params[:page]).per(3)
-
+    
     respond_to do |format|
       format.html
       format.json { render json: @blogs }
     end
   end
-
   def show
     @blog = Blog.find(params[:id])
     @popular_blogs = Blog.popular
