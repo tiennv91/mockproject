@@ -14,7 +14,9 @@ class BlogController < ApplicationController
     @locations = Location.all
     @search.sorts = 'created_at desc' if @search.sorts.empty?
     @blogs = @search.result(distinct: true).order(created_at: :DESC).page(params[:page]).per(3)
-    
+    if @page > @blogs.total_pages
+      redirect_to blog_index_url
+    end
     respond_to do |format|
       format.html
       format.json { render json: @blogs }
@@ -25,6 +27,7 @@ class BlogController < ApplicationController
     @blog = Blog.find(params[:id])
     @popular_blogs = Blog.popular
     @hashtags = Hashtag.all
+    @categories = Category.all
 
     # breacrumb
     add_breadcrumb 'Blog', :blog_index_path
