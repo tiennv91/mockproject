@@ -11,5 +11,5 @@ class Blog < ApplicationRecord
   has_many :categories, through: :category_blogs
   is_impressionable :counter_cache => :impressions_count
   has_many :impressions, as: :impressionable
-
+  scope :popular, -> {order(impressions_count: :DESC).take(3)}
 end

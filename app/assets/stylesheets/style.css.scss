@@ -3480,6 +3480,12 @@ footer {
   color: #1c1c1c;
   margin: 0 0 10px;
 }
+#block-with-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
+}
 .blog_common_block .right .bottom {
   -js-display: flex;
   display: flex;
