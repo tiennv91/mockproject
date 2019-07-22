@@ -184,10 +184,10 @@
       </div>
       <div class="blodetail_aside_ranking">
         <p class="blogdetail_aside_title">Blog ranking</p>
-        <%@popular_blogs.each do |blog|%>
+        <%@popular_blogs.each_with_index do |blog, index|%>
           <article class="blogdetail_ranking_block">
             <a href="" class="link clearfix">
-              <%= image_tag("blog/rank_icon03", class: "num_pic") %>
+              <%= rank(index) %>
               <div class="pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;">
               </div>
               <h1 class="title"><%= blog.blog_detail.title%></h1>
