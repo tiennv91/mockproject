@@ -59,9 +59,9 @@ class BlogController < ApplicationController
     unless params[:q][:categories_category_name_in].nil?
       params[:q][:categories_category_name_in] = params[:q][:categories_category_name_in].split(",")
     end
-    unless params[:q][:hashtags_tag_name_in].nil?
-      params[:q][:hashtags_tag_name_in] = params[:q][:hashtags_tag_name_in].split(",")
-    end
+    # unless params[:q][:hashtags_tag_name_cont].nil?
+    #   params[:q][:hashtags_tag_name_cont] = params[:q][:hashtags_tag_name_cont].split(",")
+    # end
     unless params[:q][:location_province_in].nil?
       params[:q][:location_province_in] = params[:q][:location_province_in].split(",")
     end
