@@ -48,7 +48,7 @@
           </div>
           <div class="ex_main_right">
             <div class="header_search_block ex_main_search">
-              <%= search_form_for @search,url: search_blog_index_path , class: "ex_main_form",html: { method: :post } do |f| %>
+              <%= search_form_for @search,url: search_blog_index_path , class: "ex_main_form",html: { method: :get } do |f| %>
                 <div class="header_exp_block">
                   <input type="text" name="q[categories_category_name_in]" class="blog_search_cat" id="BlogCat">
                   <div class="header_exp_popup" id="BlogCatPop">
