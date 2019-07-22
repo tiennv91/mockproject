@@ -1,3 +1,6 @@
+<%= content_for :title_header do %>
+  Experience | SUITO
+<% end %>
 <div class="top_main_view">
   <section class="ex_mv_wrap">
     <div class="">
@@ -8,13 +11,7 @@
       <div class="pankuzu_wrap">
         <div class="common_inner">
           <ul class="pankuzu_list">
-            <li class="pankuzu_item">
-              <a href="">Top</a>
-            </li>
-            <li class="pankuzu_item">
-              <span>Experience</span>
-            </li>
-          </ul>
+            <%= render_breadcrumbs :tag => "li class='pankuzu_item'", :separator => "" %>
         </div>
       </div>
       <div class="top_mv_filter" id="MvExpFilter"></div>  
@@ -88,223 +85,42 @@
   <div class="common_inner">
     <section class="ex_list_block">
       <div class="ex_list_top_area">
-        <p class="ex_list_num"><span>73</span><span>/</span><span>73</span> experience</p>
-        <ul class="ex_list_up_pager">
-          <li class="ex_list_up_pager_item">
-            <a href="" class="prev">
-              <%= image_tag("ex/left_icon01") %>
-            </a>
-          </li>
-          <li class="ex_list_up_pager_item">
-            <a href="" class="common active">
-              1
-            </a>
-          </li>
-          <li class="ex_list_up_pager_item">
-            <a href="" class="common active">
-              2
-            </a>
-          </li>
-          <li class="ex_list_up_pager_item">
-            <a href="" class="common active">
-              3
-            </a>
-          </li>
-          <li class="ex_list_up_pager_item">
-            ...
-          </li>
-          <li class="ex_list_up_pager_item">
-            <a href="" class="common active">
-              7
-            </a>
-          </li>
-          <li class="ex_list_up_pager_item">
-            <a href="" class="next">
-              <%= image_tag("ex/right_icon01") %>
-            </a>
-          </li>
-        </ul>
+        <p class="ex_list_num">          
+          <%= page_entries_info @experiences, entry_name: 'experiences' %>
+          <%= paginate @experiences%>
       </div>
       <div class="ex_list_loop_block clearfix">
-        <article class="ex_comon_list">
-          <a href="" class="ex_common_up">
-            <div class="ex_common_pic" style="background: url(<%= image_url('ex/pic01')%>) center center no-repeat;background-size: cover;">
-              <div class="filter"></div>
-              <span class="price_tag">¥2,400</span>
-            </div>
-            <h1 class="title">Japanese Calligraphy</h1>
-            <p class="text">
-              you can learn how to write your favorite Japanese character s(kanji) the traditional way and then print it on a T-shirt......
-            </p>
-          </a>
-          <div class="ex_common_down">
-            <a href="" class="place"><span>Momochihama</span></a>
-            <a href="" class="tag"><span>Entertainment</span></a>
-          </div>
-        </article>
-        <article class="ex_comon_list">
-          <a href="" class="ex_common_up">
-            <div class="ex_common_pic" style="background: url(<%= image_url('ex/pic01')%>) center center no-repeat;background-size: cover;">
-              <div class="filter"></div>
-              <span class="price_tag">¥2,400</span>
-            </div>
-            <h1 class="title">Japanese Calligraphy</h1>
-            <p class="text">
-              you can learn how to write your favorite Japanese character s(kanji) the traditional way and then print it on a T-shirt......
-            </p>
-          </a>
-          <div class="ex_common_down">
-            <a href="" class="place"><span>Momochihama</span></a>
-            <a href="" class="tag"><span>Entertainment</span></a>
-          </div>
-        </article>
-        <article class="ex_comon_list">
-          <a href="" class="ex_common_up">
-            <div class="ex_common_pic" style="background: url(<%= image_url('ex/pic01')%>) center center no-repeat;background-size: cover;">
-              <div class="filter"></div>
-              <span class="price_tag">¥2,400</span>
-            </div>
-            <h1 class="title">Japanese Calligraphy</h1>
-            <p class="text">
-              you can learn how to write your favorite Japanese character s(kanji) the traditional way and then print it on a T-shirt......
-            </p>
-          </a>
-          <div class="ex_common_down">
-            <a href="" class="place"><span>Momochihama</span></a>
-            <a href="" class="tag"><span>Entertainment</span></a>
-          </div>
-        </article>
-        <article class="ex_comon_list">
-          <a href="" class="ex_common_up">
-            <div class="ex_common_pic" style="background: url(<%= image_url('ex/pic01')%>) center center no-repeat;background-size: cover;">
-              <div class="filter"></div>
-              <span class="price_tag">¥2,400</span>
-            </div>
-            <h1 class="title">Japanese Calligraphy</h1>
-            <p class="text">
-              you can learn how to write your favorite Japanese character s(kanji) the traditional way and then print it on a T-shirt......
-            </p>
-          </a>
-          <div class="ex_common_down">
-            <a href="" class="place"><span>Momochihama</span></a>
-            <a href="" class="tag"><span>Entertainment</span></a>
-          </div>
-        </article>
-        <article class="ex_comon_list">
-          <a href="" class="ex_common_up">
-            <div class="ex_common_pic" style="background: url(<%= image_url('ex/pic01')%>) center center no-repeat;background-size: cover;">
-              <div class="filter"></div>
-              <span class="price_tag">¥2,400</span>
-            </div>
-            <h1 class="title">Japanese Calligraphy</h1>
-            <p class="text">
-              you can learn how to write your favorite Japanese character s(kanji) the traditional way and then print it on a T-shirt......
-            </p>
-          </a>
-          <div class="ex_common_down">
-            <a href="" class="place"><span>Momochihama</span></a>
-            <a href="" class="tag"><span>Entertainment</span></a>
-          </div>
-        </article>
-        <article class="ex_comon_list">
-          <a href="" class="ex_common_up">
-            <div class="ex_common_pic" style="background: url(<%= image_url('ex/pic01')%>) center center no-repeat;background-size: cover;">
-              <div class="filter"></div>
-              <span class="price_tag">¥2,400</span>
-            </div>
-            <h1 class="title">Japanese Calligraphy</h1>
-            <p class="text">
-              you can learn how to write your favorite Japanese character s(kanji) the traditional way and then print it on a T-shirt......
-            </p>
-          </a>
-          <div class="ex_common_down">
-            <a href="" class="place"><span>Momochihama</span></a>
-            <a href="" class="tag"><span>Entertainment</span></a>
-          </div>
-        </article>
-        <article class="ex_comon_list">
-          <a href="" class="ex_common_up">
-            <div class="ex_common_pic" style="background: url(<%= image_url('ex/pic01')%>) center center no-repeat;background-size: cover;">
-              <div class="filter"></div>
-              <span class="price_tag">¥2,400</span>
-            </div>
-            <h1 class="title">Japanese Calligraphy</h1>
-            <p class="text">
-              you can learn how to write your favorite Japanese character s(kanji) the traditional way and then print it on a T-shirt......
-            </p>
-          </a>
-          <div class="ex_common_down">
-            <a href="" class="place"><span>Momochihama</span></a>
-            <a href="" class="tag"><span>Entertainment</span></a>
-          </div>
-        </article>
-        <article class="ex_comon_list">
-          <a href="" class="ex_common_up">
-            <div class="ex_common_pic" style="background: url(<%= image_url('ex/pic01')%>) center center no-repeat;background-size: cover;">
-              <div class="filter"></div>
-              <span class="price_tag">¥2,400</span>
-            </div>
-            <h1 class="title">Japanese Calligraphy</h1>
-            <p class="text">
-              you can learn how to write your favorite Japanese character s(kanji) the traditional way and then print it on a T-shirt......
-            </p>
-          </a>
-          <div class="ex_common_down">
-            <a href="" class="place"><span>Momochihama</span></a>
-            <a href="" class="tag"><span>Entertainment</span></a>
-          </div>
-        </article>
-        <article class="ex_comon_list">
-          <a href="" class="ex_common_up">
-            <div class="ex_common_pic" style="background: url(<%= image_url('ex/pic01')%>) center center no-repeat;background-size: cover;">
-              <div class="filter"></div>
-              <span class="price_tag">¥2,400</span>
-            </div>
-            <h1 class="title">Japanese Calligraphy</h1>
-            <p class="text">
-              you can learn how to write your favorite Japanese character s(kanji) the traditional way and then print it on a T-shirt......
-            </p>
-          </a>
-          <div class="ex_common_down">
-            <a href="" class="place"><span>Momochihama</span></a>
-            <a href="" class="tag"><span>Entertainment</span></a>
-          </div>
-        </article>
+        <% if @experiences.present? %>
+          <% @experiences.each do |exp| %>
+            <article class="ex_comon_list">
+              <a href="" class="ex_common_up">
+                <div class="ex_common_pic" style="background: url(<%= image_url('ex/pic01')%>) center center no-repeat;background-size: cover;">
+                  <div class="filter"></div>
+                  <span class="price_tag"><%= number_to_currency(exp.experience_detail.price_adult.to_f, unit: "$US", precision: 0, separator: ",", delimiter: ".", format: "%u %n")%></span>
+                </div>
+                <h1 class="title"><%= link_to exp.experience_detail.title, exp %></h1>
+                <p class="text">
+                  <%= exp.experience_detail.description.truncate(140) %>
+                </p>
+              </a>
+              <div class="ex_common_down">
+                <a href="" class="place"><span><%= exp.location.province %></span></a>
+                <% if exp.categories.present? %>
+                  <a href="" class="tag">
+                    <span>
+                      <% exp.categories.each do |category| %>
+                        <%= category.category_name %>
+                      <% end %>
+                    </span>
+                  </a>
+                <% end %>
+              </div>
+            </article>
+          <% end %>
+        <% end %>
       </div>
       <ul class="ex_list_up_pager bottom">
-        <li class="ex_list_up_pager_item">
-          <a href="" class="prev">
-            <%= image_tag("ex/left_icon02") %>
-          </a>
-        </li>
-        <li class="ex_list_up_pager_item">
-          <a href="" class="common active">
-            1
-          </a>
-        </li>
-        <li class="ex_list_up_pager_item">
-          <a href="" class="common active">
-            2
-          </a>
-        </li>
-        <li class="ex_list_up_pager_item">
-          <a href="" class="common active">
-            3
-          </a>
-        </li>
-        <li class="ex_list_up_pager_item">
-          ...
-        </li>
-        <li class="ex_list_up_pager_item">
-          <a href="" class="common active">
-            7
-          </a>
-        </li>
-        <li class="ex_list_up_pager_item">
-          <a href="" class="next">
-            <%= image_tag("ex/right_icon02") %>
-          </a>
-        </li>
+        <%= paginate @experiences, theme: 'bottom_page_theme' %>
       </ul>
     </section>
   </div>
