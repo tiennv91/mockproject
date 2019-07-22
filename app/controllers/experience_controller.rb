@@ -1,19 +1,17 @@
 class ExperienceController < ApplicationController
   def index
-    @experiences = Experience.all.order(created_at: :DESC).page(params[:page]).per(6)
+    add_breadcrumb 'Experience', :experience_index_path
+    @experiences = Experience.all.order(updated_at: :DESC).page(params[:page]).per(6)
     @experience_first = Experience.all.order(created_at: :DESC).first
     @experience_count = Experience.count
     @page = params[:pagenum].to_i
     @last_page = @experiences.total_pages
 
-    @rank_experiences = ExperienceService.new.rank
-
-
     @search = Experience.ransack(params[:q])
-    @categories = Category.all
-    @locations = Location.all
+    @categories = CategoryService.new.call
+    @locations = LocationService.new.call
     @search.sorts = 'experience_details.title desc' if @search.sorts.empty?
-    @experiences = @search.result(distinct: true).order(created_at: :DESC).page(params[:page]).per(3)
+    @experiences = @search.result(distinct: true).order(created_at: :DESC).page(params[:page]).per(6)
 
     respond_to do |format|
       format.html
@@ -23,7 +21,7 @@ class ExperienceController < ApplicationController
 
   def show
     @experience = Experience.find(params[:id])
-    # @exp_im1 = Experience.all.order(impressions_count: :DESC).first
+    @recommends = ExperienceService.new.recommend(@experience)
     # @exp_im2 = Experience.all.order(impressions_count: :DESC).second
     # @exp_im3 = Experience.all.order(impressions_count: :DESC).third
 
@@ -31,5 +29,11 @@ class ExperienceController < ApplicationController
     add_breadcrumb 'Experience', :experience_index_path
     add_breadcrumb @experience.experience_detail.title, :experience_path
   end
+
+  def search
+    CategoryService.new.search
+    index
+    render :index
+  end 
 
 end

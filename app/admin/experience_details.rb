@@ -13,4 +13,19 @@ ActiveAdmin.register ExperienceDetail do
   #   permitted
   # end
   
+  index do
+    selectable_column
+    id_column
+    column :title
+    column :description
+    column :price_adult
+    column :price_children
+    column :price_infant
+    column :duration
+    column :age
+    column :language
+    column :experience_id
+    actions
+  end
+  
 end
