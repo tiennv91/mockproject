@@ -2,7 +2,7 @@ class ExperienceController < ApplicationController
   def index
     add_breadcrumb 'Experience', :experience_index_path
     @experiences = Experience.all.order(updated_at: :DESC).page(params[:page]).per(6)
-    @experience_first = Experience.all.order(created_at: :DESC).first
+    @hot_exp = ExperienceService.new.latest
     @experience_count = Experience.count
     @page = params[:pagenum].to_i
     @last_page = @experiences.total_pages

@@ -13,4 +13,8 @@ class ExperienceService
     #   return @res_categories
     # end 
   end
+
+  def latest
+    @experience = Experience.all.order(created_at: :DESC).first
+  end 
 end 
