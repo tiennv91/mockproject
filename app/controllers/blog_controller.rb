@@ -36,9 +36,9 @@ class BlogController < ApplicationController
 
   def search
     unless params[:q][:categories_category_name_in].nil?
-      params[:q][:categories_category_name_in] = params[:q][:categories_category_name_in].split(",")
+      params[:q][:categories_category_name_in] = params[:q][:categories_category_name_in].gsub(' ',',').split(",")
       unless params[:q][:hashtags_tag_name_or_hashtags_tag_name_cont_any].nil?
-        params[:q][:hashtags_tag_name_or_hashtags_tag_name_cont_any] = params[:q][:hashtags_tag_name_or_hashtags_tag_name_cont_any].split(" ")
+        params[:q][:hashtags_tag_name_or_hashtags_tag_name_cont_any] = params[:q][:hashtags_tag_name_or_hashtags_tag_name_cont_any].gsub(' ',',').split(",")
         unless params[:q][:location_province_in].nil?
           params[:q][:location_province_in] = params[:q][:location_province_in].split(",")
         end
