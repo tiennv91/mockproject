@@ -18,7 +18,7 @@ ActiveAdmin.register Experience do
   index do
     selectable_column
     id_column
-    column "Location" do |i|
+    column :location do |i|
       i.location.province
     end
     column :admin_user_id
@@ -35,8 +35,7 @@ ActiveAdmin.register Experience do
     active_admin_comments
   end
 
-  filter :location
-  filter :admin_user_id
+  filter :location, :as => :select, :collection => Location.all.collect {|loca| [loca.province, loca.id] }
 
   form do |f|
     f.inputs do
