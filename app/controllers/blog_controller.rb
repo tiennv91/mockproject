@@ -10,8 +10,8 @@ class BlogController < ApplicationController
     @popular_blogs = Blog.popular
 
     @search = Blog.ransack(params[:q])
-    @categories = Category.all
-    @locations = Location.all
+    @categories = CategoryService.new.call
+    @locations = LocationService.new.call
     @search.sorts = 'created_at desc' if @search.sorts.empty?
     @blogs = @search.result(distinct: true).order(created_at: :DESC).page(params[:page]).per(3)
     
@@ -25,6 +25,9 @@ class BlogController < ApplicationController
     @blog = Blog.find(params[:id])
     @popular_blogs = Blog.popular
     @hashtags = Hashtag.all
+
+    @location_id = @blog.location_id
+    @hot_exp = ExperienceService.new.hotexperience(@location_id)
 
     # breacrumb
     add_breadcrumb 'Blog', :blog_index_path
