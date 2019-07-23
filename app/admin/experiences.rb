@@ -1,4 +1,4 @@
-ActiveAdmin.register BlogDetail do
+ActiveAdmin.register Experience do
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -12,31 +12,16 @@ ActiveAdmin.register BlogDetail do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  permit_params :title, :description, :content
+  
+  permit_params :location_id, :admin_user_id
 
-  index do
-    selectable_column
-    column :id
-    column :title
-    column :description
-    actions
-  end
-  show do
-    attributes_table do
-      row :title
-      row (:content) { |con| raw(con.content) }
-    end
-    active_admin_comments
-  end
-
-  filter :title
-  filter :content
+  filter :location
+  filter :admin_user_id
 
   form do |f|
     f.inputs do
-      f.text_field :title
-      f.text_area :description
-      f.input :content,  :as => :ckeditor
+      f.input :location_id
+      f.input :admin_user_id
     end
     f.actions
   end
