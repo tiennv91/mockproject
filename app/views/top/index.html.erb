@@ -367,7 +367,7 @@
           <div class="top_blog_left">
             <% @popular_blogs.each do |blog|%>
             <article class="top_common_blog">
-              <a href="">
+              <a href="<%= blog_path(blog) %>">
                 <div class="top_blog_pic" style="background: url(<%= image_url('common/sample_pic')%>) center center no-repeat;background-size: cover;"></div>
                 <div class="top_blog_info">
                   <h1 class="top_blog_title">

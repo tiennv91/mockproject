@@ -21,4 +21,8 @@ class ExperienceService
   def hottest
     @experiences = Experience.all.order(created_at: :DESC).first(8)
   end 
+
+  def hotexperience(location)
+    @hot_exp = Experience.where(["location_id = ?", location]).first(2)
+  end 
 end 

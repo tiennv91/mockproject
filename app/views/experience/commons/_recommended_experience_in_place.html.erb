@@ -1,6 +1,6 @@
 <div class="common_inner">
     <div class="exdetail_bottom_slider">
-      <h3 class="exdetail_common_title">Recommended Experiences in Hakata</h3>
+      <h3 class="exdetail_common_title">Recommended Experiences in <%= @experience.location.province%></h3>
       <div class="exdetail_bxslider">
         <% if @recommends.present? %>      
           <% @recommends.each do |rec| %>

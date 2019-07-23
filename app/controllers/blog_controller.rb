@@ -26,6 +26,9 @@ class BlogController < ApplicationController
     @popular_blogs = Blog.popular
     @hashtags = Hashtag.all
 
+    @location_id = @blog.location_id
+    @hot_exp = ExperienceService.new.hotexperience(@location_id)
+
     # breacrumb
     add_breadcrumb 'Blog', :blog_index_path
     add_breadcrumb @blog.blog_detail.title, :blog_path

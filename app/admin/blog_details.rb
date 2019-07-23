@@ -12,7 +12,7 @@ ActiveAdmin.register BlogDetail do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  permit_params :title, :content
+  permit_params :title, :description, :content
 
   index do
     selectable_column
@@ -35,6 +35,7 @@ ActiveAdmin.register BlogDetail do
   form do |f|
     f.inputs do
       f.text_field :title
+      f.text_area :description
       f.input :content,  :as => :ckeditor
     end
     f.actions

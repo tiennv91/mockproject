@@ -19,6 +19,7 @@ class ExperienceController < ApplicationController
   def show
     @experience = Experience.find(params[:id])
     @recommends = ExperienceService.new.recommend(@experience)
+    @host = AdminUser.find(@experience.admin_user_id)
 
     # breacrumb
     add_breadcrumb 'Experience', :experience_index_path
