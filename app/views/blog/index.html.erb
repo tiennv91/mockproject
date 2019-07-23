@@ -86,8 +86,8 @@
     <section class="ex_list_block">
       <div class="ex_list_top_area">
         <p class="ex_list_num">
-        <%= page_entries_info @blogs, entry_name: 'blogs' %>
-        <%= paginate @blogs%>
+          <%= page_entries_info @blogs, entry_name: 'blogs' %>
+          <%= paginate @blogs%>
       </div>
       <section class="blog_ranking_wrap clearfix">
       <% @popular_blogs.each_with_index do |blog, index|%>

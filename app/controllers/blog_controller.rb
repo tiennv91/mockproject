@@ -14,6 +14,12 @@ class BlogController < ApplicationController
     @locations = LocationService.new.call
     @search.sorts = 'created_at desc' if @search.sorts.empty?
     @blogs = @search.result(distinct: true).order(created_at: :DESC).page(params[:page]).per(3)
+<<<<<<< HEAD
+=======
+    if @page > @blogs.total_pages
+      redirect_to blog_index_url
+    end
+>>>>>>> feature/search-experience
     respond_to do |format|
       format.html
       format.json { render json: @blogs }
@@ -23,6 +29,11 @@ class BlogController < ApplicationController
   def show
     @blog = Blog.find(params[:id])
     @popular_blogs = Blog.popular
+<<<<<<< HEAD
+=======
+    @hashtags = Hashtag.all
+    @categories = Category.all
+>>>>>>> feature/search-experience
 
     @location_id = @blog.location_id
     @hot_exp = ExperienceService.new.hotexperience(@location_id)
@@ -35,6 +46,18 @@ class BlogController < ApplicationController
   end
 
   def search
+<<<<<<< HEAD
+=======
+    unless params[:q][:categories_category_name_in].nil?
+      params[:q][:categories_category_name_in] = params[:q][:categories_category_name_in].gsub(' ',',').split(",")
+      unless params[:q][:hashtags_tag_name_or_hashtags_tag_name_cont_any].nil?
+        params[:q][:hashtags_tag_name_or_hashtags_tag_name_cont_any] = params[:q][:hashtags_tag_name_or_hashtags_tag_name_cont_any].gsub(' ',',').split(",")
+        unless params[:q][:location_province_in].nil?
+          params[:q][:location_province_in] = params[:q][:location_province_in].split(",")
+        end
+      end
+    end
+>>>>>>> feature/search-experience
     index
     render :index
   end

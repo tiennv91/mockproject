@@ -194,8 +194,9 @@
       <div class="blodetail_aside_ranking">
         <p class="blogdetail_aside_title">Blog category</p>
         <select name="category_choose" class="blogdetail_aside_select">
-          <option value="Culture">Culture</option>
-          <option value="Shoppint">Shopping</option>
+          <%@categories.each do |cate|%>
+            <option value="<%= link_to cate.category_name, search_blog_index_path(:q =>{:categories_category_name_in => cate.category_name }) %>"> </option>
+          <%end%>
         </select>
       </div>
     </aside>
