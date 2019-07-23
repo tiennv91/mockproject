@@ -14,13 +14,12 @@ class BlogController < ApplicationController
     @locations = LocationService.new.call
     @search.sorts = 'created_at desc' if @search.sorts.empty?
     @blogs = @search.result(distinct: true).order(created_at: :DESC).page(params[:page]).per(3)
-    
     respond_to do |format|
       format.html
       format.json { render json: @blogs }
     end
   end
- 
+  
   def show
     @blog = Blog.find(params[:id])
     @popular_blogs = Blog.popular
@@ -35,15 +34,7 @@ class BlogController < ApplicationController
   end
 
   def search
-    unless params[:q][:categories_category_name_in].nil?
-      params[:q][:categories_category_name_in] = params[:q][:categories_category_name_in].split(",")
-      unless params[:q][:hashtags_tag_name_or_hashtags_tag_name_cont_any].nil?
-        params[:q][:hashtags_tag_name_or_hashtags_tag_name_cont_any] = params[:q][:hashtags_tag_name_or_hashtags_tag_name_cont_any].split(" ")
-        unless params[:q][:location_province_in].nil?
-          params[:q][:location_province_in] = params[:q][:location_province_in].split(",")
-        end
-      end
-    end
+    
     index
     render :index
   end
