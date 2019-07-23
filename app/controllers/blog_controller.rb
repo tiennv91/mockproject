@@ -23,18 +23,18 @@ class BlogController < ApplicationController
   def show
     @blog = Blog.find(params[:id])
     @popular_blogs = Blog.popular
-    @hashtags = Hashtag.all
 
     @location_id = @blog.location_id
     @hot_exp = ExperienceService.new.hotexperience(@location_id)
 
+    #recommend with hashtags and location in common
+    @recommend_blogs_with_hashtags_and_location_in_common = Blog.hashtags_and_location_in_common(@blog)
     # breacrumb
     add_breadcrumb 'Blog', :blog_index_path
     add_breadcrumb @blog.blog_detail.title, :blog_path
   end
 
   def search
-    
     index
     render :index
   end
