@@ -89,6 +89,18 @@
 # ExperienceDetail.create(experience_id: 6, title: 'Experience6', price_adult: '16000', price_children: '8000', price_infant: '0', duration: '2 hours', age: 'from 8 to 16', language: 'English, Korean')
 # ExperienceDetail.create(experience_id: 7, title: 'Experience7', price_adult: '28000', price_children: '14000', price_infant: '0', duration: '8 hours', age: '6 and over', language: 'Vietnamese, Chinese')
 
+# ExperienceDate.create(expFrom: '03/06/2019', expTo: '05/06/2019', month: '6', year: '2019', experience_detail_id: '2')
+# ExperienceDate.create(expFrom: '07/06/2019', expTo: '07/06/2019', month: '6', year: '2019', experience_detail_id: '2')
+# ExperienceDate.create(expFrom: '10/06/2019', expTo: '11/06/2019', month: '6', year: '2019', experience_detail_id: '2')
+# ExperienceDate.create(expFrom: '12/06/2019', expTo: '14/06/2019', month: '6', year: '2019', experience_detail_id: '2')
+# ExperienceDate.create(expFrom: '01/06/2019', expTo: '02/06/2019', month: '6', year: '2019', experience_detail_id: '4')
+# ExperienceDate.create(expFrom: '04/06/2019', expTo: '06/06/2019', month: '6', year: '2019', experience_detail_id: '4')
+# ExperienceDate.create(expFrom: '03/06/2019', expTo: '03/06/2019', month: '6', year: '2019', experience_detail_id: '5')
+# ExperienceDate.create(expFrom: '05/06/2019', expTo: '05/06/2019', month: '6', year: '2019', experience_detail_id: '5')
+# ExperienceDate.create(expFrom: '07/06/2019', expTo: '07/06/2019', month: '6', year: '2019', experience_detail_id: '5')
+# ExperienceDate.create(expFrom: '01/07/2019', expTo: '03/07/2019', month: '7', year: '2019', experience_detail_id: '1')
+# ExperienceDate.create(expFrom: '08/07/2019', expTo: '10/07/2019', month: '7', year: '2019', experience_detail_id: '1')
+
 # Role.create(name: 'admin')
 # Role.create(name: 'host')
 # Role.create(name: 'user')

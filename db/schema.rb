@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_22_074601) do
+ActiveRecord::Schema.define(version: 2019_07_23_032235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,17 @@ ActiveRecord::Schema.define(version: 2019_07_22_074601) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
+  create_table "experience_dates", force: :cascade do |t|
+    t.date "expFrom"
+    t.date "expTo"
+    t.integer "month"
+    t.integer "year"
+    t.bigint "experience_detail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["experience_detail_id"], name: "index_experience_dates_on_experience_detail_id"
   end
 
   create_table "experience_details", force: :cascade do |t|
