@@ -12,12 +12,15 @@ ActiveAdmin.register ExperienceDetail do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+  permit_params :title, :description, :image, :price_adult, :price_children, :price_infant, :duration, :age, :language, :experience
   
   index do
     selectable_column
     id_column
     column :title
     column :description
+    column :image
     column :price_adult
     column :price_children
     column :price_infant
@@ -28,4 +31,20 @@ ActiveAdmin.register ExperienceDetail do
     actions
   end
   
+  form do |f|
+    f.inputs do
+      f.input :title
+      f.input :description
+      f.input :image
+      f.input :price_adult
+      f.input :price_children
+      f.input :price_infant
+      f.input :duration
+      f.input :age
+      f.input :language
+      f.input :experience_id
+    end
+    f.actions
+  end
+
 end

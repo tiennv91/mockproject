@@ -13,7 +13,7 @@ ActiveAdmin.register Experience do
   #   permitted
   # end
   
-  # permit_params :category_name
+  permit_params :location_id, :admin_user_id
 
   filter :location
   filter :admin_user_id

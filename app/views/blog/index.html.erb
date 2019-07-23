@@ -90,10 +90,10 @@
         <%= paginate @blogs%>
       </div>
       <section class="blog_ranking_wrap clearfix">
-      <% @popular_blogs.each do |blog|%>
+      <% @popular_blogs.each_with_index do |blog, index|%>
         <article class="blog_ranking_block">
           <a href="<%= blog_path(blog) %>" class="link clearfix">
-            <%= image_tag("blog/rank_icon01.png", class: "num_pic") %>
+            <%= rank(index) %>
             <div class="right">
               <div class="pic" style="background: url(<%= image_url("common/sample_pic.jpg") %>) center center no-repeat;background-size: cover;">
                 <% if blog.categories.any? %>
