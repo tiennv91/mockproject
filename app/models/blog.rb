@@ -18,8 +18,8 @@ class Blog < ApplicationRecord
     blog.hashtags.each do |h|
       @hashtags.push(h.id)
     end
-    @q = Blog.ransack(:location_province_has_any_term => blog.location.province, :hashtags_id_in => @hashtags)
-    @q.result(distinct: true).order(impressions_count: :DESC)
+    @q = Blog.ransack(:location_province_has_any_term => blog.location.province, :hashtags_id_in => @hashtags, :id_not_eq => blog.id)
+    @q.result(distinct: true).order(impressions_count: :DESC).limit(2)
   end
   
 end
