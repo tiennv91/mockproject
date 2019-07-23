@@ -199,7 +199,7 @@
         <p class="blogdetail_aside_title">Blog category</p>
         <select name="category_choose" class="blogdetail_aside_select">
           <%@categories.each do |cate|%>
-            <option name="q[:search]" value="<%=cate.category_name%>"><%=cate.category_name%></option>
+            <option value="<%= link_to cate.category_name, search_blog_index_path(:q =>{:categories_category_name_in => cate.category_name }) %>"> </option>
           <%end%>
         </select>
       </div>
