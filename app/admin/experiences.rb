@@ -13,7 +13,7 @@ ActiveAdmin.register Experience do
   #   permitted
   # end
   
-  permit_params :admin_user_id, :location_id, :image
+  permit_params :admin_user_id, :location_id
 
   index do
     selectable_column
@@ -31,9 +31,7 @@ ActiveAdmin.register Experience do
         i.location.province
       end
       row :admin_user_id
-      row :image do |i|
-        image_tag url_for(i.image)
-      end
+      
     end
     active_admin_comments
   end
@@ -44,7 +42,7 @@ ActiveAdmin.register Experience do
     f.inputs do
       f.input :location, :as => :select, :collection => Location.all.collect {|loca| [loca.province, loca.id] }
       f.input :admin_user_id, :as => :select, :collection => AdminUser.all.collect {|ad| [ad.id] }
-      f.input :image, as: :file
+      
     end
     f.actions
   end
