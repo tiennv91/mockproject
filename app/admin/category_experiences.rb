@@ -38,8 +38,8 @@ ActiveAdmin.register CategoryExperience do
     active_admin_comments
   end
 
-  filter :experience, :as => :select, :collection => ExperienceDetail.all.collect {|loca| [loca.title, loca.id] }
-  filter :category, :collection => Category.all.collect {|category| [category.category_name, category.id] }
+  # filter :experience, :as => :select, :collection => ExperienceDetail.all.collect {|loca| [loca.title, loca.id] }
+  # filter :category, :collection => Category.all.collect {|category| [category.category_name, category.id] }
 
   form do |f|
     f.inputs do

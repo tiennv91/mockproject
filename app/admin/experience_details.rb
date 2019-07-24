@@ -47,7 +47,7 @@ ActiveAdmin.register ExperienceDetail do
     active_admin_comments
   end
 
-  filter :title, :as => :select, :collection => ExperienceDetail.all.collect {|loca| [loca.title] }
+  # filter :title, :as => :select, :collection => ExperienceDetail.all.collect {|loca| [loca.title] }
 
   form do |f|
     f.inputs do

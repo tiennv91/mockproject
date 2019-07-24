@@ -26,11 +26,11 @@ ActiveAdmin.register ExperienceDate do
     actions
   end
 
-  filter :expFrom
-  filter :expTo
-  filter :month
-  filter :year
-  filter :experience_detail_id
+  # filter :expFrom
+  # filter :expTo
+  # filter :month
+  # filter :year
+  # filter :experience_detail_id
   
   form do |f|
     f.inputs do
