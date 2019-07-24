@@ -379,7 +379,7 @@
                       <ul class="top_blog_tag">
                         <% blog.hashtags.each do |hash_tag| %>
                           <li class="top_blog_tag_item">
-                            <p class="top_blog_tag_link" id="">#<%= hash_tag.tag_name %></p>
+                            <p class="top_blog_tag_link" id="<%= hash_tag.tag_name %>">#<%= hash_tag.tag_name %></p>
                           </li>
                         <% end %>
                       </ul>
