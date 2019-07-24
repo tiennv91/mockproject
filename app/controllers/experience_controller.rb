@@ -1,11 +1,8 @@
 class ExperienceController < ApplicationController
   def index
     add_breadcrumb 'Experience', :experience_index_path
-    @experiences = Experience.all.order(updated_at: :DESC).page(params[:page]).per(6)
-    @experience_first = Experience.all.order(created_at: :DESC).first
-    @experience_count = Experience.count
-    @page = params[:pagenum].to_i
-    @last_page = @experiences.total_pages
+    # @experiences = Experience.all.order(updated_at: :DESC).page(params[:page]).per(6)
+    @hot_exp = ExperienceService.new.latest
 
     @search = Experience.ransack(params[:q])
     @categories = CategoryService.new.call
@@ -22,8 +19,7 @@ class ExperienceController < ApplicationController
   def show
     @experience = Experience.find(params[:id])
     @recommends = ExperienceService.new.recommend(@experience)
-    # @exp_im2 = Experience.all.order(impressions_count: :DESC).second
-    # @exp_im3 = Experience.all.order(impressions_count: :DESC).third
+    @host = AdminUser.find(@experience.admin_user_id)
 
     # breacrumb
     add_breadcrumb 'Experience', :experience_index_path
@@ -32,25 +28,8 @@ class ExperienceController < ApplicationController
 
   def search
     # CategoryService.new.search
-    unless params[:q][:categories_category_name_in].nil?
-      params[:q][:categories_category_name_in] = params[:q][:categories_category_name_in].split(",")
-      unless params[:q][:location_province_in].nil?
-        params[:q][:location_province_in] = params[:q][:location_province_in].split(",")
-      end
-    end
-    index
-    render :index
+    # render :index
   end 
-  
-  def application_form
-  end
-
-  def confirm  
-  end
-
-  def send_request
-  end
-
   def payment
   end
 

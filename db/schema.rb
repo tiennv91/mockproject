@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_23_085503) do
+ActiveRecord::Schema.define(version: 2019_07_23_032235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,28 @@ ActiveRecord::Schema.define(version: 2019_07_23_085503) do
     t.index ["experience_id"], name: "index_category_experiences_on_experience_id"
   end
 
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "data_fingerprint"
+    t.string "type", limit: 30
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
+  create_table "experience_dates", force: :cascade do |t|
+    t.date "expFrom"
+    t.date "expTo"
+    t.integer "month"
+    t.integer "year"
+    t.bigint "experience_detail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["experience_detail_id"], name: "index_experience_dates_on_experience_detail_id"
+  end
+
   create_table "experience_details", force: :cascade do |t|
     t.string "title"
     t.decimal "price_adult"
@@ -161,15 +183,14 @@ ActiveRecord::Schema.define(version: 2019_07_23_085503) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text "description"
+    t.string "image"
     t.index ["experience_id"], name: "index_experience_details_on_experience_id"
   end
 
   create_table "experiences", force: :cascade do |t|
     t.bigint "location_id"
-    t.bigint "admin_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["admin_user_id"], name: "index_experiences_on_admin_user_id"
     t.index ["location_id"], name: "index_experiences_on_location_id"
   end
 
@@ -222,6 +243,5 @@ ActiveRecord::Schema.define(version: 2019_07_23_085503) do
   add_foreign_key "bookings", "experiences"
   add_foreign_key "category_experiences", "categories"
   add_foreign_key "category_experiences", "experiences"
-  add_foreign_key "experiences", "admin_users"
   add_foreign_key "experiences", "locations"
 end
