@@ -12,13 +12,13 @@ ActiveAdmin.register ExperienceDetail do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  permit_params :experience_id, :title, :description, :price_adult, :price_children, :price_infant, :duration, :age, :language
+  permit_params :experience_id, :title, :description, :price_adult, :price_children, :price_infant, :duration, :age, :language, :image
 
   index do
     selectable_column
     id_column
     column :title
-    # column :description
+    column :description
     column :price_adult
     column :price_children
     column :price_infant
@@ -26,6 +26,7 @@ ActiveAdmin.register ExperienceDetail do
     column :age
     column :language
     column :experience_id
+    column :image
     actions
   end
   show do
@@ -39,6 +40,9 @@ ActiveAdmin.register ExperienceDetail do
       row :age
       row :language
       row :experience_id
+      row :image do |i|
+        image_tag url_for(i.image)
+      end
     end
     active_admin_comments
   end
@@ -56,6 +60,7 @@ ActiveAdmin.register ExperienceDetail do
       f.input :duration
       f.input :age
       f.input :language
+      f.input :image, as: :file
     end
     f.actions
   end
