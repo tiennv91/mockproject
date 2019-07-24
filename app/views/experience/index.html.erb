@@ -45,9 +45,9 @@
           <div class="ex_main_right">
             <div class="header_search_block ex_main_search">
             <%= search_form_for @search,url: search_experience_index_path , class: "ex_main_form" do |f| %>
-              <%= f.search_field :location_province_in, name: "ex_date", autocomplete: "off", class: "header_search_date", id: "ExSearchDate"%>
+              <%= f.search_field :location_province_in, name: "ex_date", autocomplete: "off", class: "header_search_date", id: "ExSearchDate", autocomplete: "off" %>
               <div class="header_exp_block">
-                <%= f.search_field :location_province_in, autocomplete: "off", class: "header_search_place", id: "ExSearchPlace"%>
+                <%= f.search_field :location_province_in, autocomplete: "off", class: "header_search_place", id: "ExSearchPlace", autocomplete: "off" %>
                 <div class="header_exp_popup" id="ExPlacePop">
                   <div class="" id="EXSearchPlace_Choose">
                     <ul class="top_mv_place_list">
@@ -59,7 +59,7 @@
                 </div>
               </div>
               <div class="header_exp_block">
-                <%= f.search_field :categories_category_name_in, class: "header_search_exp", id: "BlogCat"%>
+                <%= f.search_field :categories_category_name_in, class: "header_search_exp", id: "BlogCat", autocomplete: "off" %>
                 <div class="header_exp_popup" id="BlogCatPop">
                   <div class="" id="BlogCat_Choose">
                     <ul class="top_mv_place_list">
