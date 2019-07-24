@@ -6,6 +6,11 @@
 # #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 # #   Character.create(name: 'Luke', movie: movies.first)
 
+Role.create(name: 'admin')
+Role.create(name: 'host')
+
+AdminUser.create(fullname: 'admin', email: 'abc@example.com', password: '123456', role_id: '1')
+
 Location.create(province: 'Ho Chi Minh')
 Location.create(province: 'Ha Noi')
 Location.create(province: 'Quang Binh')
@@ -103,9 +108,6 @@ ExperienceDate.create(expFrom: '07/06/2019', expTo: '07/06/2019', month: '6', ye
 ExperienceDate.create(expFrom: '01/07/2019', expTo: '03/07/2019', month: '7', year: '2019', experience_detail_id: '1')
 ExperienceDate.create(expFrom: '08/07/2019', expTo: '10/07/2019', month: '7', year: '2019', experience_detail_id: '1')
 
-Role.create(name: 'admin')
-Role.create(name: 'host')
 
-AdminUser.create(fullname: 'admin', email: 'abc@example.com', password: '123456', role_id: '1')
 
 # AdminUser.create(fullname: 'admin1', email: 'admin1@example.com', password: '123456', role_id: '2')
