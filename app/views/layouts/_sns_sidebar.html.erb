@@ -1,7 +1,19 @@
 <div class="top_sns_wrap">
 	  <div class="top_sns_inner">
-			<%= social_share_button_tag("Home - SUITO", :url => "http://suitojp.herokuapp.com/") %>
-			<div class="share-button clearfix">
+			<%# <%= social_share_button_tag("Home - SUITO", :url => "http://suitojp.herokuapp.com/") %>			
+			<div class="share-button">
+		    <div class="share-button-secondary">
+		      <div class="share-button-secondary-content">
+		        share on facebook
+		      </div>
+		    </div>
+		    <div class="share-button-primary">
+		      <a href="https://www.facebook.com/share.php?u=http%3A%2F%2Fsuitojp.herokuapp.com%2F&title=Home%20-%20SUITO">	
+						<%= image_tag("common/side_fb.png") %>
+					</a>
+		    </div>
+		  </div>
+		  <div class="share-button clearfix">
 		    <div class="share-button-secondary">
 		      <div class="share-button-secondary-content">
 		        share on instagram
@@ -10,6 +22,18 @@
 		    <div class="share-button-primary">
 		      <%= image_tag("common/side_insta.png") %>
 		    </div>
+		  </div>
+		  <div class="share-button">
+		    <div class="share-button-secondary">
+		      <div class="share-button-secondary-content">
+		        share on twitter
+		      </div>
+		    </div>
+		    <div class="share-button-primary">					
+					<a href="http://twitter.com/home?status=Home%20-%20SUITO+http%3A%2F%2Fsuitojp.herokuapp.com%2F">
+						<%= image_tag("common/side_twitter.png") %>	      
+					</a>
+		    </div>		
 		  </div>
 			<div class="change_btn_block">
 			  <p class="change_btn" id="SideChangeBtn">
