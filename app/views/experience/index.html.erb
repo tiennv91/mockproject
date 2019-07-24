@@ -24,7 +24,7 @@
                   <%= image_tag("ex/new_icon") %>
                 </p>
                 <div class="ex_info_box">
-                  <a href="" class="ex_info_title"><%= @hot_exp.experience_detail.title %></a>
+                  <a href="<%= experience_path(@hot_exp) %>" class="ex_info_title"><%= @hot_exp.experience_detail.title %></a>
                   <div class="ex_info_inner">
                     <a href="" class="ex_info_left"><span><%= @hot_exp.location.province %></span></a>
                     <% if @hot_exp.categories.present? %>
