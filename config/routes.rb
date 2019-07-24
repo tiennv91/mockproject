@@ -10,7 +10,16 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
   
-  resources :experience
+  resources :experience do
+    collection do
+      get 'applicationform', to: "experience#application_form"
+      get 'confirm', to: "experience#confirm"
+      get 'sendrequest', to: "experience#send_request"
+      get 'payment', to: "experience#payment"
+      get 'complete', to: "experience#complete"
+      match 'search' => 'experience#search', :via => [:get, :post], :as => :search
+    end
+  end
 
   resources :blog do
     collection do

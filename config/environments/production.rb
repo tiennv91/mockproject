@@ -114,6 +114,7 @@ Rails.application.configure do
    :user_name            => "suitojapan328@gmail.com",
    :password             => "@Suitojapan328", # Nhớ đổi chỗ này
    :authentication       => "plain",
-  :enable_starttls_auto => true
+   :tls                  => false,
+   :enable_starttls_auto => true
   }
 end

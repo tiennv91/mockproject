@@ -30,7 +30,9 @@
         </div>
       <% end %>
       <%= yield %>
-      <%= render 'layouts/sns_sidebar'%>
+      <% unless hide_side_bar? %>
+        <%= render 'layouts/sns_sidebar'%>
+      <% end %>
       <a href="#TOP" class="common_up_btn">
         <%= image_tag("common/up_arrow.png", alt: "△") %>
       </a>
@@ -41,7 +43,9 @@
       
         	$(".top_blog_tag_link").click(function(){
             var tag_s_id = $(this).attr("id");
-            location.href = 'http://suito.com/'+tag_s_id;
+            console.log(tag_s_id);
+            
+            // location.href 
           });
       
       
@@ -130,6 +134,25 @@
           auto:true,
           pause:5000
         });
+      
+        $("#ThanksMail").on("click",function(){
+          	$(".thanks_mail_wrap").stop().slideToggle();
+        	});
+      
+      
+      
+      
+        $(".ex_comon_list").matchHeight();
+      
+      		$('.exdetail_bxslider').bxSlider({
+      	    slideWidth: 255,
+      	    minSlides: 1,
+      	    maxSlides: 3,
+      	    slideMargin: 40,
+      	    pager:false
+      // 	    controls:false,
+      	  });
+      
       });
     </script>
     <!-- Movie -->
